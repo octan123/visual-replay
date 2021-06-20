@@ -25,7 +25,7 @@ export default new XVIZStreamLoader({
   // bufferLength: 15,
   serverConfig: {
     defaultLogLength: 30,
-    serverUrl: 'ws://localhost:7001/ws'
+    serverUrl: 'ws://localhost:8081'
   },
   worker: true,
   maxConcurrency: 4

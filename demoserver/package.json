@@ -14,7 +14,6 @@
   },
   "scripts": {
     "startKitti": "./modules/server/bin/babel-xvizserver -d data/generated/kitti/2011_09_26/2011_09_26_drive_0005_sync --port 8081",
-    "startNutonomy": "./modules/server/bin/babel-xvizserver -d data/generated/nutonomy/scene-0006 --port 8081",
     "bootstrap": "PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn && ocular-bootstrap",
     "bench": "ocular-test bench",
     "build": "ocular-clean && yarn build-schema && lerna run pre-build && ocular-build",
