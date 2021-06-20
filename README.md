@@ -16,7 +16,7 @@ yarn start-streaming-local
 地址，https://avs.auto/demo/index.html
 
 
-frontend和server是基于仿真数据的回放查看，由于仿真数据中的acceleration,velocity,wheel错误，导致acceleration,velocity,wheel显示有问题。  
+frontend和server是基于仿真数据的回放，由于仿真数据中acceleration,velocity,wheel错误，导致acceleration,velocity,wheel显示有问题。  
 使用的主要技术xviz，websocket，react，egg.js  
 启动server，在根目录执行以下命令  
 cd server  
@@ -28,6 +28,6 @@ cd frontend
 yarn  
 yarn start  
 
-录制的视频，由于上传文件大小限制，只录制了40s。
+录制的视频，由于上传文件大小限制，只录制了40s。  
 https://user-images.githubusercontent.com/19968677/122677337-88b9f800-d214-11eb-82f0-0260bdb64bf3.mp4
 
