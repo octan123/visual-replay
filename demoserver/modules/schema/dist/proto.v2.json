@@ -1,0 +1,1954 @@
+{
+  "nested": {
+    "xviz": {
+      "nested": {
+        "v2": {
+          "options": {
+            "csharp_namespace": "xviz.V2",
+            "go_package": "v2pb",
+            "java_multiple_files": true,
+            "java_outer_classname": "UiprimitivesProto",
+            "java_package": "com.xviz.v2",
+            "objc_class_prefix": "XVIZ",
+            "php_namespace": "Xviz\\V2"
+          },
+          "nested": {
+            "VisualBase": {
+              "options": {
+                "(xviz_json_schema)": "core/annotation_base"
+              },
+              "fields": {
+                "object_id": {
+                  "type": "string",
+                  "id": 1
+                }
+              }
+            },
+            "Visual": {
+              "options": {
+                "(xviz_json_schema)": "core/annotation_visual"
+              },
+              "fields": {
+                "base": {
+                  "type": "VisualBase",
+                  "id": 1
+                },
+                "style_classes": {
+                  "rule": "repeated",
+                  "type": "string",
+                  "id": 2
+                },
+                "inline_style": {
+                  "type": "StyleObjectValue",
+                  "id": 3
+                }
+              }
+            },
+            "StreamSet": {
+              "options": {
+                "(xviz_json_schema)": "core/stream_set"
+              },
+              "fields": {
+                "timestamp": {
+                  "type": "double",
+                  "id": 1
+                },
+                "poses": {
+                  "keyType": "string",
+                  "type": "Pose",
+                  "id": 2
+                },
+                "primitives": {
+                  "keyType": "string",
+                  "type": "PrimitiveState",
+                  "id": 3
+                },
+                "time_series": {
+                  "rule": "repeated",
+                  "type": "TimeSeriesState",
+                  "id": 4
+                },
+                "future_instances": {
+                  "keyType": "string",
+                  "type": "FutureInstances",
+                  "id": 6
+                },
+                "variables": {
+                  "keyType": "string",
+                  "type": "VariableState",
+                  "id": 7
+                },
+                "annotations": {
+                  "keyType": "string",
+                  "type": "AnnotationState",
+                  "id": 8
+                },
+                "ui_primitives": {
+                  "keyType": "string",
+                  "type": "UIPrimitiveState",
+                  "id": 9
+                },
+                "no_data_streams": {
+                  "rule": "repeated",
+                  "type": "string",
+                  "id": 10
+                },
+                "links": {
+                  "keyType": "string",
+                  "type": "Link",
+                  "id": 11
+                }
+              }
+            },
+            "Pose": {
+              "options": {
+                "(xviz_json_schema)": "core/pose"
+              },
+              "fields": {
+                "timestamp": {
+                  "type": "double",
+                  "id": 1
+                },
+                "map_origin": {
+                  "type": "MapOrigin",
+                  "id": 2
+                },
+                "position": {
+                  "rule": "repeated",
+                  "type": "double",
+                  "id": 3
+                },
+                "orientation": {
+                  "rule": "repeated",
+                  "type": "double",
+                  "id": 4
+                }
+              }
+            },
+            "MapOrigin": {
+              "fields": {
+                "longitude": {
+                  "type": "double",
+                  "id": 1
+                },
+                "latitude": {
+                  "type": "double",
+                  "id": 2
+                },
+                "altitude": {
+                  "type": "double",
+                  "id": 3
+                }
+              }
+            },
+            "PrimitiveState": {
+              "options": {
+                "(xviz_json_schema)": "core/primitive_state"
+              },
+              "fields": {
+                "polygons": {
+                  "rule": "repeated",
+                  "type": "Polygon",
+                  "id": 1
+                },
+                "polylines": {
+                  "rule": "repeated",
+                  "type": "Polyline",
+                  "id": 2
+                },
+                "texts": {
+                  "rule": "repeated",
+                  "type": "Text",
+                  "id": 3
+                },
+                "circles": {
+                  "rule": "repeated",
+                  "type": "Circle",
+                  "id": 4
+                },
+                "points": {
+                  "rule": "repeated",
+                  "type": "Point",
+                  "id": 5
+                },
+                "stadiums": {
+                  "rule": "repeated",
+                  "type": "Stadium",
+                  "id": 6
+                },
+                "images": {
+                  "rule": "repeated",
+                  "type": "Image",
+                  "id": 7
+                }
+              }
+            },
+            "UIPrimitiveState": {
+              "options": {
+                "(xviz_json_schema)": "core/ui_primitive_state"
+              },
+              "fields": {
+                "treetable": {
+                  "type": "TreeTable",
+                  "id": 1
+                }
+              }
+            },
+            "TimeSeriesState": {
+              "options": {
+                "(xviz_json_schema)": "core/timeseries_state"
+              },
+              "fields": {
+                "timestamp": {
+                  "type": "double",
+                  "id": 1
+                },
+                "object_id": {
+                  "type": "string",
+                  "id": 2
+                },
+                "streams": {
+                  "rule": "repeated",
+                  "type": "string",
+                  "id": 3
+                },
+                "values": {
+                  "type": "Values",
+                  "id": 4
+                }
+              }
+            },
+            "FutureInstances": {
+              "options": {
+                "(xviz_json_schema)": "core/future_instances"
+              },
+              "fields": {
+                "timestamps": {
+                  "rule": "repeated",
+                  "type": "double",
+                  "id": 1
+                },
+                "primitives": {
+                  "rule": "repeated",
+                  "type": "PrimitiveState",
+                  "id": 2
+                }
+              }
+            },
+            "VariableState": {
+              "options": {
+                "(xviz_json_schema)": "core/variable_state"
+              },
+              "fields": {
+                "variables": {
+                  "rule": "repeated",
+                  "type": "Variable",
+                  "id": 1
+                }
+              }
+            },
+            "AnnotationState": {
+              "options": {
+                "(xviz_json_schema)": "core/annotation_state"
+              },
+              "fields": {
+                "visuals": {
+                  "rule": "repeated",
+                  "type": "Visual",
+                  "id": 1
+                }
+              }
+            },
+            "Variable": {
+              "options": {
+                "(xviz_json_schema)": "core/variable"
+              },
+              "fields": {
+                "base": {
+                  "type": "VariableBase",
+                  "id": 1
+                },
+                "values": {
+                  "type": "Values",
+                  "id": 2
+                }
+              }
+            },
+            "VariableBase": {
+              "fields": {
+                "object_id": {
+                  "type": "string",
+                  "id": 1
+                }
+              }
+            },
+            "Values": {
+              "options": {
+                "(xviz_json_schema)": "core/values"
+              },
+              "fields": {
+                "doubles": {
+                  "rule": "repeated",
+                  "type": "double",
+                  "id": 2
+                },
+                "int32s": {
+                  "rule": "repeated",
+                  "type": "int32",
+                  "id": 3
+                },
+                "bools": {
+                  "rule": "repeated",
+                  "type": "bool",
+                  "id": 4
+                },
+                "strings": {
+                  "rule": "repeated",
+                  "type": "string",
+                  "id": 5
+                }
+              }
+            },
+            "Link": {
+              "options": {
+                "(xviz_json_schema)": "core/link_state"
+              },
+              "fields": {
+                "target_pose": {
+                  "type": "string",
+                  "id": 1
+                }
+              }
+            },
+            "Envelope": {
+              "fields": {
+                "type": {
+                  "type": "string",
+                  "id": 1
+                },
+                "data": {
+                  "type": "google.protobuf.Any",
+                  "id": 2
+                }
+              }
+            },
+            "xviz_json_schema": {
+              "type": "string",
+              "id": 54200,
+              "extend": "google.protobuf.MessageOptions"
+            },
+            "PrimitiveBase": {
+              "fields": {
+                "object_id": {
+                  "type": "string",
+                  "id": 1
+                },
+                "classes": {
+                  "rule": "repeated",
+                  "type": "string",
+                  "id": 2
+                },
+                "style": {
+                  "type": "StyleObjectValue",
+                  "id": 3
+                }
+              }
+            },
+            "Circle": {
+              "options": {
+                "(xviz_json_schema)": "primitives/circle"
+              },
+              "fields": {
+                "base": {
+                  "type": "PrimitiveBase",
+                  "id": 1
+                },
+                "center": {
+                  "rule": "repeated",
+                  "type": "float",
+                  "id": 2
+                },
+                "radius": {
+                  "type": "float",
+                  "id": 3
+                }
+              }
+            },
+            "Image": {
+              "options": {
+                "(xviz_json_schema)": "primitives/image"
+              },
+              "fields": {
+                "base": {
+                  "type": "PrimitiveBase",
+                  "id": 1
+                },
+                "position": {
+                  "rule": "repeated",
+                  "type": "float",
+                  "id": 2
+                },
+                "data": {
+                  "type": "bytes",
+                  "id": 3
+                },
+                "width_px": {
+                  "type": "uint32",
+                  "id": 4
+                },
+                "height_px": {
+                  "type": "uint32",
+                  "id": 5
+                }
+              }
+            },
+            "Point": {
+              "options": {
+                "(xviz_json_schema)": "primitives/point"
+              },
+              "fields": {
+                "base": {
+                  "type": "PrimitiveBase",
+                  "id": 1
+                },
+                "points": {
+                  "rule": "repeated",
+                  "type": "float",
+                  "id": 2
+                },
+                "colors": {
+                  "type": "bytes",
+                  "id": 3
+                }
+              }
+            },
+            "Polygon": {
+              "options": {
+                "(xviz_json_schema)": "primitives/polygon"
+              },
+              "fields": {
+                "base": {
+                  "type": "PrimitiveBase",
+                  "id": 1
+                },
+                "vertices": {
+                  "rule": "repeated",
+                  "type": "float",
+                  "id": 2
+                }
+              }
+            },
+            "Polyline": {
+              "options": {
+                "(xviz_json_schema)": "primitives/polyline"
+              },
+              "fields": {
+                "base": {
+                  "type": "PrimitiveBase",
+                  "id": 1
+                },
+                "vertices": {
+                  "rule": "repeated",
+                  "type": "float",
+                  "id": 2
+                },
+                "colors": {
+                  "type": "bytes",
+                  "id": 3
+                }
+              }
+            },
+            "Stadium": {
+              "options": {
+                "(xviz_json_schema)": "primitives/stadium"
+              },
+              "fields": {
+                "base": {
+                  "type": "PrimitiveBase",
+                  "id": 1
+                },
+                "start": {
+                  "rule": "repeated",
+                  "type": "float",
+                  "id": 2
+                },
+                "end": {
+                  "rule": "repeated",
+                  "type": "float",
+                  "id": 3
+                },
+                "radius": {
+                  "type": "float",
+                  "id": 4
+                }
+              }
+            },
+            "Text": {
+              "options": {
+                "(xviz_json_schema)": "primitives/text"
+              },
+              "fields": {
+                "base": {
+                  "type": "PrimitiveBase",
+                  "id": 1
+                },
+                "position": {
+                  "rule": "repeated",
+                  "type": "float",
+                  "id": 2
+                },
+                "text": {
+                  "type": "string",
+                  "id": 3
+                }
+              }
+            },
+            "SessionType": {
+              "values": {
+                "SESSION_TYPE_INVALID": 0,
+                "LIVE": 1,
+                "LOG": 2,
+                "UNBUFFERED_LOG": 3
+              }
+            },
+            "Start": {
+              "options": {
+                "(xviz_json_schema)": "session/start"
+              },
+              "fields": {
+                "version": {
+                  "type": "string",
+                  "id": 1
+                },
+                "profile": {
+                  "type": "string",
+                  "id": 2
+                },
+                "session_type": {
+                  "type": "SessionType",
+                  "id": 3
+                },
+                "message_format": {
+                  "type": "MessageFormat",
+                  "id": 4
+                },
+                "log": {
+                  "type": "string",
+                  "id": 5
+                }
+              },
+              "nested": {
+                "MessageFormat": {
+                  "values": {
+                    "START_MESSAGE_FORMAT_INVALID": 0,
+                    "JSON": 1,
+                    "BINARY": 2
+                  }
+                }
+              }
+            },
+            "TransformLog": {
+              "options": {
+                "(xviz_json_schema)": "session/transform_log"
+              },
+              "fields": {
+                "id": {
+                  "type": "string",
+                  "id": 1
+                },
+                "start_timestamp": {
+                  "type": "double",
+                  "id": 2
+                },
+                "end_timestamp": {
+                  "type": "double",
+                  "id": 3
+                },
+                "desired_streams": {
+                  "rule": "repeated",
+                  "type": "string",
+                  "id": 4
+                }
+              }
+            },
+            "StateUpdate": {
+              "options": {
+                "(xviz_json_schema)": "session/state_update"
+              },
+              "fields": {
+                "update_type": {
+                  "type": "UpdateType",
+                  "id": 1
+                },
+                "updates": {
+                  "rule": "repeated",
+                  "type": "StreamSet",
+                  "id": 2
+                }
+              },
+              "nested": {
+                "UpdateType": {
+                  "values": {
+                    "STATE_UPDATE_UPDATE_TYPE_INVALID": 0,
+                    "SNAPSHOT": 1,
+                    "INCREMENTAL": 2,
+                    "COMPLETE_STATE": 3,
+                    "PERSISTENT": 4
+                  }
+                }
+              }
+            },
+            "TransformLogDone": {
+              "options": {
+                "(xviz_json_schema)": "session/transform_log_done"
+              },
+              "fields": {
+                "id": {
+                  "type": "string",
+                  "id": 1
+                }
+              }
+            },
+            "TransformPointInTime": {
+              "options": {
+                "(xviz_json_schema)": "session/transform_point_in_time"
+              },
+              "fields": {
+                "id": {
+                  "type": "string",
+                  "id": 1
+                },
+                "query_timestamp": {
+                  "type": "double",
+                  "id": 2
+                },
+                "desired_streams": {
+                  "rule": "repeated",
+                  "type": "string",
+                  "id": 3
+                }
+              }
+            },
+            "Reconfigure": {
+              "options": {
+                "(xviz_json_schema)": "session/reconfigure"
+              },
+              "fields": {
+                "update_type": {
+                  "type": "UpdateType",
+                  "id": 1
+                },
+                "config_update": {
+                  "type": "google.protobuf.Struct",
+                  "id": 2
+                }
+              },
+              "nested": {
+                "UpdateType": {
+                  "values": {
+                    "RECONFIGURE_UPDATE_TYPE_INVALID": 0,
+                    "DELTA": 1,
+                    "FULL": 2
+                  }
+                }
+              }
+            },
+            "Metadata": {
+              "options": {
+                "(xviz_json_schema)": "session/metadata"
+              },
+              "fields": {
+                "version": {
+                  "type": "string",
+                  "id": 1
+                },
+                "streams": {
+                  "keyType": "string",
+                  "type": "StreamMetadata",
+                  "id": 2
+                },
+                "cameras": {
+                  "keyType": "string",
+                  "type": "CameraInfo",
+                  "id": 3
+                },
+                "stream_aliases": {
+                  "keyType": "string",
+                  "type": "string",
+                  "id": 4
+                },
+                "ui_config": {
+                  "keyType": "string",
+                  "type": "UIPanelInfo",
+                  "id": 5
+                },
+                "log_info": {
+                  "type": "LogInfo",
+                  "id": 6
+                }
+              }
+            },
+            "Error": {
+              "options": {
+                "(xviz_json_schema)": "session/error"
+              },
+              "fields": {
+                "message": {
+                  "type": "string",
+                  "id": 1
+                }
+              }
+            },
+            "StreamMetadata": {
+              "options": {
+                "(xviz_json_schema)": "session/stream_metadata"
+              },
+              "fields": {
+                "source": {
+                  "type": "string",
+                  "id": 1
+                },
+                "units": {
+                  "type": "string",
+                  "id": 2
+                },
+                "category": {
+                  "type": "Category",
+                  "id": 3
+                },
+                "scalar_type": {
+                  "type": "ScalarType",
+                  "id": 4
+                },
+                "primitive_type": {
+                  "type": "PrimitiveType",
+                  "id": 5
+                },
+                "ui_primitive_type": {
+                  "type": "UIPrimitiveType",
+                  "id": 6
+                },
+                "annotation_type": {
+                  "type": "AnnotationType",
+                  "id": 7
+                },
+                "stream_style": {
+                  "type": "StyleStreamValue",
+                  "id": 8
+                },
+                "style_classes": {
+                  "rule": "repeated",
+                  "type": "StyleClass",
+                  "id": 9
+                },
+                "coordinate": {
+                  "type": "CoordinateType",
+                  "id": 10
+                },
+                "transform": {
+                  "rule": "repeated",
+                  "type": "double",
+                  "id": 11
+                },
+                "transform_callback": {
+                  "type": "string",
+                  "id": 12
+                }
+              },
+              "nested": {
+                "Category": {
+                  "values": {
+                    "STREAM_METADATA_CATEGORY_INVALID": 0,
+                    "PRIMITIVE": 1,
+                    "TIME_SERIES": 2,
+                    "VARIABLE": 3,
+                    "ANNOTATION": 4,
+                    "FUTURE_INSTANCE": 5,
+                    "POSE": 6,
+                    "UI_PRIMITIVE": 7
+                  }
+                },
+                "ScalarType": {
+                  "values": {
+                    "STREAM_METADATA_SCALAR_TYPE_INVALID": 0,
+                    "FLOAT": 1,
+                    "INT32": 2,
+                    "STRING": 3,
+                    "BOOL": 4
+                  }
+                },
+                "PrimitiveType": {
+                  "values": {
+                    "STREAM_METADATA_PRIMITIVE_TYPE_INVALID": 0,
+                    "CIRCLE": 1,
+                    "IMAGE": 2,
+                    "POINT": 3,
+                    "POLYGON": 4,
+                    "POLYLINE": 5,
+                    "STADIUM": 6,
+                    "TEXT": 7
+                  }
+                },
+                "UIPrimitiveType": {
+                  "values": {
+                    "STREAM_METADATA_UI_PRIMITIVE_TYPE_INVALID": 0,
+                    "TREETABLE": 1
+                  }
+                },
+                "AnnotationType": {
+                  "values": {
+                    "STREAM_METADATA_ANNOTATION_TYPE_INVALID": 0,
+                    "VISUAL": 1
+                  }
+                },
+                "CoordinateType": {
+                  "values": {
+                    "STREAM_METADATA_COORDINATE_TYPE_INVALID": 0,
+                    "GEOGRAPHIC": 1,
+                    "IDENTITY": 2,
+                    "DYNAMIC": 3,
+                    "VEHICLE_RELATIVE": 4
+                  }
+                }
+              }
+            },
+            "CameraInfo": {
+              "options": {
+                "(xviz_json_schema)": "session/camera_info"
+              },
+              "fields": {
+                "human_name": {
+                  "type": "string",
+                  "id": 1
+                },
+                "source": {
+                  "type": "string",
+                  "id": 2
+                },
+                "vehicle_position": {
+                  "rule": "repeated",
+                  "type": "double",
+                  "id": 3
+                },
+                "vehicle_orientation": {
+                  "rule": "repeated",
+                  "type": "double",
+                  "id": 4
+                },
+                "pixel_width": {
+                  "type": "double",
+                  "id": 5
+                },
+                "pixel_height": {
+                  "type": "double",
+                  "id": 6
+                },
+                "rectification_projection": {
+                  "rule": "repeated",
+                  "type": "double",
+                  "id": 7
+                },
+                "gl_projection": {
+                  "rule": "repeated",
+                  "type": "double",
+                  "id": 8
+                }
+              }
+            },
+            "UIPanelInfo": {
+              "options": {
+                "(xviz_json_schema)": "session/ui_panel_info"
+              },
+              "fields": {
+                "name": {
+                  "type": "string",
+                  "id": 1
+                },
+                "needed_streams": {
+                  "rule": "repeated",
+                  "type": "string",
+                  "id": 2
+                },
+                "config": {
+                  "type": "google.protobuf.Struct",
+                  "id": 3
+                }
+              }
+            },
+            "LogInfo": {
+              "options": {
+                "(xviz_json_schema)": "session/log_info"
+              },
+              "fields": {
+                "start_time": {
+                  "type": "double",
+                  "id": 1
+                },
+                "end_time": {
+                  "type": "double",
+                  "id": 2
+                }
+              }
+            },
+            "StyleClass": {
+              "options": {
+                "(xviz_json_schema)": "style/class"
+              },
+              "fields": {
+                "name": {
+                  "type": "string",
+                  "id": 1
+                },
+                "style": {
+                  "type": "StyleObjectValue",
+                  "id": 2
+                }
+              }
+            },
+            "StyleObjectValue": {
+              "options": {
+                "(xviz_json_schema)": "style/object_value"
+              },
+              "fields": {
+                "fill_color": {
+                  "type": "bytes",
+                  "id": 1
+                },
+                "stroke_color": {
+                  "type": "bytes",
+                  "id": 2
+                },
+                "stroke_width": {
+                  "type": "float",
+                  "id": 3
+                },
+                "radius": {
+                  "type": "float",
+                  "id": 4
+                },
+                "text_size": {
+                  "type": "float",
+                  "id": 5
+                },
+                "text_rotation": {
+                  "type": "float",
+                  "id": 6
+                },
+                "text_anchor": {
+                  "type": "TextAnchor",
+                  "id": 7
+                },
+                "text_baseline": {
+                  "type": "TextAlignmentBaseline",
+                  "id": 8
+                },
+                "height": {
+                  "type": "float",
+                  "id": 9
+                }
+              }
+            },
+            "StyleStreamValue": {
+              "options": {
+                "(xviz_json_schema)": "style/stream_value"
+              },
+              "fields": {
+                "fill_color": {
+                  "type": "bytes",
+                  "id": 1
+                },
+                "stroke_color": {
+                  "type": "bytes",
+                  "id": 2
+                },
+                "stroke_width": {
+                  "type": "float",
+                  "id": 3
+                },
+                "radius": {
+                  "type": "float",
+                  "id": 4
+                },
+                "text_size": {
+                  "type": "float",
+                  "id": 5
+                },
+                "text_rotation": {
+                  "type": "float",
+                  "id": 6
+                },
+                "text_anchor": {
+                  "type": "TextAnchor",
+                  "id": 7
+                },
+                "text_baseline": {
+                  "type": "TextAlignmentBaseline",
+                  "id": 8
+                },
+                "height": {
+                  "type": "float",
+                  "id": 9
+                },
+                "radius_min_pixels": {
+                  "type": "uint32",
+                  "id": 10
+                },
+                "radius_max_pixels": {
+                  "type": "uint32",
+                  "id": 11
+                },
+                "stroke_width_min_pixels": {
+                  "type": "uint32",
+                  "id": 12
+                },
+                "stroke_width_max_pixels": {
+                  "type": "uint32",
+                  "id": 13
+                },
+                "opacity": {
+                  "type": "float",
+                  "id": 14
+                },
+                "stroked": {
+                  "type": "bool",
+                  "id": 15
+                },
+                "filled": {
+                  "type": "bool",
+                  "id": 16
+                },
+                "extruded": {
+                  "type": "bool",
+                  "id": 17
+                },
+                "radius_pixels": {
+                  "type": "uint32",
+                  "id": 18
+                },
+                "font_weight": {
+                  "type": "uint32",
+                  "id": 19
+                },
+                "font_family": {
+                  "type": "string",
+                  "id": 20
+                },
+                "point_color_mode": {
+                  "type": "PointColorMode",
+                  "id": 21
+                },
+                "point_color_domain": {
+                  "rule": "repeated",
+                  "type": "float",
+                  "id": 22
+                }
+              }
+            },
+            "Color": {
+              "fields": {
+                "values": {
+                  "type": "bytes",
+                  "id": 1
+                }
+              }
+            },
+            "TextAnchor": {
+              "values": {
+                "TEXT_ANCHOR_INVALID": 0,
+                "START": 1,
+                "MIDDLE": 2,
+                "END": 3
+              }
+            },
+            "TextAlignmentBaseline": {
+              "values": {
+                "TEXT_ALIGNMENT_BASELINE_INVALID": 0,
+                "TOP": 1,
+                "CENTER": 2,
+                "BOTTOM": 3
+              }
+            },
+            "PointColorMode": {
+              "values": {
+                "POINT_COLOR_MODE_INVALID": 0,
+                "ELEVATION": 1,
+                "DISTANCE_TO_VEHICLE": 2
+              }
+            },
+            "TreeTable": {
+              "options": {
+                "(xviz_json_schema)": "ui-primitives/treetable"
+              },
+              "fields": {
+                "columns": {
+                  "rule": "repeated",
+                  "type": "TreeTableColumn",
+                  "id": 1
+                },
+                "nodes": {
+                  "rule": "repeated",
+                  "type": "TreeTableNode",
+                  "id": 2
+                }
+              }
+            },
+            "TreeTableColumn": {
+              "fields": {
+                "display_text": {
+                  "type": "string",
+                  "id": 1
+                },
+                "type": {
+                  "type": "ColumnType",
+                  "id": 2
+                },
+                "unit": {
+                  "type": "string",
+                  "id": 3
+                }
+              },
+              "nested": {
+                "ColumnType": {
+                  "values": {
+                    "TREE_TABLE_COLUMN_COLUMN_TYPE_INVALID": 0,
+                    "INT32": 1,
+                    "DOUBLE": 2,
+                    "STRING": 3,
+                    "BOOLEAN": 4
+                  }
+                }
+              }
+            },
+            "TreeTableNode": {
+              "fields": {
+                "id": {
+                  "type": "int32",
+                  "id": 1
+                },
+                "parent": {
+                  "type": "int32",
+                  "id": 2
+                },
+                "column_values": {
+                  "rule": "repeated",
+                  "type": "string",
+                  "id": 3
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "google": {
+      "nested": {
+        "protobuf": {
+          "nested": {
+            "Any": {
+              "fields": {
+                "type_url": {
+                  "type": "string",
+                  "id": 1
+                },
+                "value": {
+                  "type": "bytes",
+                  "id": 2
+                }
+              }
+            },
+            "FileDescriptorSet": {
+              "fields": {
+                "file": {
+                  "rule": "repeated",
+                  "type": "FileDescriptorProto",
+                  "id": 1
+                }
+              }
+            },
+            "FileDescriptorProto": {
+              "fields": {
+                "name": {
+                  "type": "string",
+                  "id": 1
+                },
+                "package": {
+                  "type": "string",
+                  "id": 2
+                },
+                "dependency": {
+                  "rule": "repeated",
+                  "type": "string",
+                  "id": 3
+                },
+                "public_dependency": {
+                  "rule": "repeated",
+                  "type": "int32",
+                  "id": 10,
+                  "options": {
+                    "packed": false
+                  }
+                },
+                "weak_dependency": {
+                  "rule": "repeated",
+                  "type": "int32",
+                  "id": 11,
+                  "options": {
+                    "packed": false
+                  }
+                },
+                "message_type": {
+                  "rule": "repeated",
+                  "type": "DescriptorProto",
+                  "id": 4
+                },
+                "enum_type": {
+                  "rule": "repeated",
+                  "type": "EnumDescriptorProto",
+                  "id": 5
+                },
+                "service": {
+                  "rule": "repeated",
+                  "type": "ServiceDescriptorProto",
+                  "id": 6
+                },
+                "extension": {
+                  "rule": "repeated",
+                  "type": "FieldDescriptorProto",
+                  "id": 7
+                },
+                "options": {
+                  "type": "FileOptions",
+                  "id": 8
+                },
+                "source_code_info": {
+                  "type": "SourceCodeInfo",
+                  "id": 9
+                },
+                "syntax": {
+                  "type": "string",
+                  "id": 12
+                }
+              }
+            },
+            "DescriptorProto": {
+              "fields": {
+                "name": {
+                  "type": "string",
+                  "id": 1
+                },
+                "field": {
+                  "rule": "repeated",
+                  "type": "FieldDescriptorProto",
+                  "id": 2
+                },
+                "extension": {
+                  "rule": "repeated",
+                  "type": "FieldDescriptorProto",
+                  "id": 6
+                },
+                "nested_type": {
+                  "rule": "repeated",
+                  "type": "DescriptorProto",
+                  "id": 3
+                },
+                "enum_type": {
+                  "rule": "repeated",
+                  "type": "EnumDescriptorProto",
+                  "id": 4
+                },
+                "extension_range": {
+                  "rule": "repeated",
+                  "type": "ExtensionRange",
+                  "id": 5
+                },
+                "oneof_decl": {
+                  "rule": "repeated",
+                  "type": "OneofDescriptorProto",
+                  "id": 8
+                },
+                "options": {
+                  "type": "MessageOptions",
+                  "id": 7
+                },
+                "reserved_range": {
+                  "rule": "repeated",
+                  "type": "ReservedRange",
+                  "id": 9
+                },
+                "reserved_name": {
+                  "rule": "repeated",
+                  "type": "string",
+                  "id": 10
+                }
+              },
+              "nested": {
+                "ExtensionRange": {
+                  "fields": {
+                    "start": {
+                      "type": "int32",
+                      "id": 1
+                    },
+                    "end": {
+                      "type": "int32",
+                      "id": 2
+                    }
+                  }
+                },
+                "ReservedRange": {
+                  "fields": {
+                    "start": {
+                      "type": "int32",
+                      "id": 1
+                    },
+                    "end": {
+                      "type": "int32",
+                      "id": 2
+                    }
+                  }
+                }
+              }
+            },
+            "FieldDescriptorProto": {
+              "fields": {
+                "name": {
+                  "type": "string",
+                  "id": 1
+                },
+                "number": {
+                  "type": "int32",
+                  "id": 3
+                },
+                "label": {
+                  "type": "Label",
+                  "id": 4
+                },
+                "type": {
+                  "type": "Type",
+                  "id": 5
+                },
+                "type_name": {
+                  "type": "string",
+                  "id": 6
+                },
+                "extendee": {
+                  "type": "string",
+                  "id": 2
+                },
+                "default_value": {
+                  "type": "string",
+                  "id": 7
+                },
+                "oneof_index": {
+                  "type": "int32",
+                  "id": 9
+                },
+                "json_name": {
+                  "type": "string",
+                  "id": 10
+                },
+                "options": {
+                  "type": "FieldOptions",
+                  "id": 8
+                }
+              },
+              "nested": {
+                "Type": {
+                  "values": {
+                    "TYPE_DOUBLE": 1,
+                    "TYPE_FLOAT": 2,
+                    "TYPE_INT64": 3,
+                    "TYPE_UINT64": 4,
+                    "TYPE_INT32": 5,
+                    "TYPE_FIXED64": 6,
+                    "TYPE_FIXED32": 7,
+                    "TYPE_BOOL": 8,
+                    "TYPE_STRING": 9,
+                    "TYPE_GROUP": 10,
+                    "TYPE_MESSAGE": 11,
+                    "TYPE_BYTES": 12,
+                    "TYPE_UINT32": 13,
+                    "TYPE_ENUM": 14,
+                    "TYPE_SFIXED32": 15,
+                    "TYPE_SFIXED64": 16,
+                    "TYPE_SINT32": 17,
+                    "TYPE_SINT64": 18
+                  }
+                },
+                "Label": {
+                  "values": {
+                    "LABEL_OPTIONAL": 1,
+                    "LABEL_REQUIRED": 2,
+                    "LABEL_REPEATED": 3
+                  }
+                }
+              }
+            },
+            "OneofDescriptorProto": {
+              "fields": {
+                "name": {
+                  "type": "string",
+                  "id": 1
+                },
+                "options": {
+                  "type": "OneofOptions",
+                  "id": 2
+                }
+              }
+            },
+            "EnumDescriptorProto": {
+              "fields": {
+                "name": {
+                  "type": "string",
+                  "id": 1
+                },
+                "value": {
+                  "rule": "repeated",
+                  "type": "EnumValueDescriptorProto",
+                  "id": 2
+                },
+                "options": {
+                  "type": "EnumOptions",
+                  "id": 3
+                }
+              }
+            },
+            "EnumValueDescriptorProto": {
+              "fields": {
+                "name": {
+                  "type": "string",
+                  "id": 1
+                },
+                "number": {
+                  "type": "int32",
+                  "id": 2
+                },
+                "options": {
+                  "type": "EnumValueOptions",
+                  "id": 3
+                }
+              }
+            },
+            "ServiceDescriptorProto": {
+              "fields": {
+                "name": {
+                  "type": "string",
+                  "id": 1
+                },
+                "method": {
+                  "rule": "repeated",
+                  "type": "MethodDescriptorProto",
+                  "id": 2
+                },
+                "options": {
+                  "type": "ServiceOptions",
+                  "id": 3
+                }
+              }
+            },
+            "MethodDescriptorProto": {
+              "fields": {
+                "name": {
+                  "type": "string",
+                  "id": 1
+                },
+                "input_type": {
+                  "type": "string",
+                  "id": 2
+                },
+                "output_type": {
+                  "type": "string",
+                  "id": 3
+                },
+                "options": {
+                  "type": "MethodOptions",
+                  "id": 4
+                },
+                "client_streaming": {
+                  "type": "bool",
+                  "id": 5
+                },
+                "server_streaming": {
+                  "type": "bool",
+                  "id": 6
+                }
+              }
+            },
+            "FileOptions": {
+              "fields": {
+                "java_package": {
+                  "type": "string",
+                  "id": 1
+                },
+                "java_outer_classname": {
+                  "type": "string",
+                  "id": 8
+                },
+                "java_multiple_files": {
+                  "type": "bool",
+                  "id": 10
+                },
+                "java_generate_equals_and_hash": {
+                  "type": "bool",
+                  "id": 20,
+                  "options": {
+                    "deprecated": true
+                  }
+                },
+                "java_string_check_utf8": {
+                  "type": "bool",
+                  "id": 27
+                },
+                "optimize_for": {
+                  "type": "OptimizeMode",
+                  "id": 9,
+                  "options": {
+                    "default": "SPEED"
+                  }
+                },
+                "go_package": {
+                  "type": "string",
+                  "id": 11
+                },
+                "cc_generic_services": {
+                  "type": "bool",
+                  "id": 16
+                },
+                "java_generic_services": {
+                  "type": "bool",
+                  "id": 17
+                },
+                "py_generic_services": {
+                  "type": "bool",
+                  "id": 18
+                },
+                "deprecated": {
+                  "type": "bool",
+                  "id": 23
+                },
+                "cc_enable_arenas": {
+                  "type": "bool",
+                  "id": 31
+                },
+                "objc_class_prefix": {
+                  "type": "string",
+                  "id": 36
+                },
+                "csharp_namespace": {
+                  "type": "string",
+                  "id": 37
+                },
+                "uninterpreted_option": {
+                  "rule": "repeated",
+                  "type": "UninterpretedOption",
+                  "id": 999
+                }
+              },
+              "extensions": [
+                [
+                  1000,
+                  536870911
+                ]
+              ],
+              "reserved": [
+                [
+                  38,
+                  38
+                ]
+              ],
+              "nested": {
+                "OptimizeMode": {
+                  "values": {
+                    "SPEED": 1,
+                    "CODE_SIZE": 2,
+                    "LITE_RUNTIME": 3
+                  }
+                }
+              }
+            },
+            "MessageOptions": {
+              "fields": {
+                "message_set_wire_format": {
+                  "type": "bool",
+                  "id": 1
+                },
+                "no_standard_descriptor_accessor": {
+                  "type": "bool",
+                  "id": 2
+                },
+                "deprecated": {
+                  "type": "bool",
+                  "id": 3
+                },
+                "map_entry": {
+                  "type": "bool",
+                  "id": 7
+                },
+                "uninterpreted_option": {
+                  "rule": "repeated",
+                  "type": "UninterpretedOption",
+                  "id": 999
+                }
+              },
+              "extensions": [
+                [
+                  1000,
+                  536870911
+                ]
+              ],
+              "reserved": [
+                [
+                  8,
+                  8
+                ]
+              ]
+            },
+            "FieldOptions": {
+              "fields": {
+                "ctype": {
+                  "type": "CType",
+                  "id": 1,
+                  "options": {
+                    "default": "STRING"
+                  }
+                },
+                "packed": {
+                  "type": "bool",
+                  "id": 2
+                },
+                "jstype": {
+                  "type": "JSType",
+                  "id": 6,
+                  "options": {
+                    "default": "JS_NORMAL"
+                  }
+                },
+                "lazy": {
+                  "type": "bool",
+                  "id": 5
+                },
+                "deprecated": {
+                  "type": "bool",
+                  "id": 3
+                },
+                "weak": {
+                  "type": "bool",
+                  "id": 10
+                },
+                "uninterpreted_option": {
+                  "rule": "repeated",
+                  "type": "UninterpretedOption",
+                  "id": 999
+                }
+              },
+              "extensions": [
+                [
+                  1000,
+                  536870911
+                ]
+              ],
+              "reserved": [
+                [
+                  4,
+                  4
+                ]
+              ],
+              "nested": {
+                "CType": {
+                  "values": {
+                    "STRING": 0,
+                    "CORD": 1,
+                    "STRING_PIECE": 2
+                  }
+                },
+                "JSType": {
+                  "values": {
+                    "JS_NORMAL": 0,
+                    "JS_STRING": 1,
+                    "JS_NUMBER": 2
+                  }
+                }
+              }
+            },
+            "OneofOptions": {
+              "fields": {
+                "uninterpreted_option": {
+                  "rule": "repeated",
+                  "type": "UninterpretedOption",
+                  "id": 999
+                }
+              },
+              "extensions": [
+                [
+                  1000,
+                  536870911
+                ]
+              ]
+            },
+            "EnumOptions": {
+              "fields": {
+                "allow_alias": {
+                  "type": "bool",
+                  "id": 2
+                },
+                "deprecated": {
+                  "type": "bool",
+                  "id": 3
+                },
+                "uninterpreted_option": {
+                  "rule": "repeated",
+                  "type": "UninterpretedOption",
+                  "id": 999
+                }
+              },
+              "extensions": [
+                [
+                  1000,
+                  536870911
+                ]
+              ]
+            },
+            "EnumValueOptions": {
+              "fields": {
+                "deprecated": {
+                  "type": "bool",
+                  "id": 1
+                },
+                "uninterpreted_option": {
+                  "rule": "repeated",
+                  "type": "UninterpretedOption",
+                  "id": 999
+                }
+              },
+              "extensions": [
+                [
+                  1000,
+                  536870911
+                ]
+              ]
+            },
+            "ServiceOptions": {
+              "fields": {
+                "deprecated": {
+                  "type": "bool",
+                  "id": 33
+                },
+                "uninterpreted_option": {
+                  "rule": "repeated",
+                  "type": "UninterpretedOption",
+                  "id": 999
+                }
+              },
+              "extensions": [
+                [
+                  1000,
+                  536870911
+                ]
+              ]
+            },
+            "MethodOptions": {
+              "fields": {
+                "deprecated": {
+                  "type": "bool",
+                  "id": 33
+                },
+                "uninterpreted_option": {
+                  "rule": "repeated",
+                  "type": "UninterpretedOption",
+                  "id": 999
+                }
+              },
+              "extensions": [
+                [
+                  1000,
+                  536870911
+                ]
+              ]
+            },
+            "UninterpretedOption": {
+              "fields": {
+                "name": {
+                  "rule": "repeated",
+                  "type": "NamePart",
+                  "id": 2
+                },
+                "identifier_value": {
+                  "type": "string",
+                  "id": 3
+                },
+                "positive_int_value": {
+                  "type": "uint64",
+                  "id": 4
+                },
+                "negative_int_value": {
+                  "type": "int64",
+                  "id": 5
+                },
+                "double_value": {
+                  "type": "double",
+                  "id": 6
+                },
+                "string_value": {
+                  "type": "bytes",
+                  "id": 7
+                },
+                "aggregate_value": {
+                  "type": "string",
+                  "id": 8
+                }
+              },
+              "nested": {
+                "NamePart": {
+                  "fields": {
+                    "name_part": {
+                      "rule": "required",
+                      "type": "string",
+                      "id": 1
+                    },
+                    "is_extension": {
+                      "rule": "required",
+                      "type": "bool",
+                      "id": 2
+                    }
+                  }
+                }
+              }
+            },
+            "SourceCodeInfo": {
+              "fields": {
+                "location": {
+                  "rule": "repeated",
+                  "type": "Location",
+                  "id": 1
+                }
+              },
+              "nested": {
+                "Location": {
+                  "fields": {
+                    "path": {
+                      "rule": "repeated",
+                      "type": "int32",
+                      "id": 1
+                    },
+                    "span": {
+                      "rule": "repeated",
+                      "type": "int32",
+                      "id": 2
+                    },
+                    "leading_comments": {
+                      "type": "string",
+                      "id": 3
+                    },
+                    "trailing_comments": {
+                      "type": "string",
+                      "id": 4
+                    },
+                    "leading_detached_comments": {
+                      "rule": "repeated",
+                      "type": "string",
+                      "id": 6
+                    }
+                  }
+                }
+              }
+            },
+            "GeneratedCodeInfo": {
+              "fields": {
+                "annotation": {
+                  "rule": "repeated",
+                  "type": "Annotation",
+                  "id": 1
+                }
+              },
+              "nested": {
+                "Annotation": {
+                  "fields": {
+                    "path": {
+                      "rule": "repeated",
+                      "type": "int32",
+                      "id": 1
+                    },
+                    "source_file": {
+                      "type": "string",
+                      "id": 2
+                    },
+                    "begin": {
+                      "type": "int32",
+                      "id": 3
+                    },
+                    "end": {
+                      "type": "int32",
+                      "id": 4
+                    }
+                  }
+                }
+              }
+            },
+            "Struct": {
+              "fields": {
+                "fields": {
+                  "keyType": "string",
+                  "type": "Value",
+                  "id": 1
+                }
+              }
+            },
+            "Value": {
+              "oneofs": {
+                "kind": {
+                  "oneof": [
+                    "nullValue",
+                    "numberValue",
+                    "stringValue",
+                    "boolValue",
+                    "structValue",
+                    "listValue"
+                  ]
+                }
+              },
+              "fields": {
+                "nullValue": {
+                  "type": "NullValue",
+                  "id": 1
+                },
+                "numberValue": {
+                  "type": "double",
+                  "id": 2
+                },
+                "stringValue": {
+                  "type": "string",
+                  "id": 3
+                },
+                "boolValue": {
+                  "type": "bool",
+                  "id": 4
+                },
+                "structValue": {
+                  "type": "Struct",
+                  "id": 5
+                },
+                "listValue": {
+                  "type": "ListValue",
+                  "id": 6
+                }
+              }
+            },
+            "NullValue": {
+              "values": {
+                "NULL_VALUE": 0
+              }
+            },
+            "ListValue": {
+              "fields": {
+                "values": {
+                  "rule": "repeated",
+                  "type": "Value",
+                  "id": 1
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

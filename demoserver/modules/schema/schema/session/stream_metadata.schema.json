@@ -1,0 +1,154 @@
+{
+  "id": "https://xviz.org/schema/session/stream_metadata.json",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "XVIZ Stream Metadata",
+  "type": "object",
+  "properties": {
+    "source": {
+      "type": "string"
+    },
+    "units": {
+      "type": "string"
+    },
+    "coordinate": {},
+    "transform": {
+      "$ref": "https://xviz.org/schema/math/matrix4x4.json"
+    },
+    "transform_callback": {
+      "type": "string"
+    },
+    "category": {
+      "enum": [
+        "ANNOTATION",
+        "FUTURE_INSTANCE",
+        "POSE",
+        "PRIMITIVE",
+        "UI_PRIMITIVE",
+        "TIME_SERIES",
+        "VARIABLE"
+      ]
+    },
+    "scalar_type": {
+      "enum": [
+        "FLOAT",
+        "INT32",
+        "BOOL",
+        "STRING"
+      ]
+    },
+    "primitive_type": {
+      "enum": [
+        "CIRCLE",
+        "IMAGE",
+        "POINT",
+        "POLYGON",
+        "POLYLINE",
+        "STADIUM",
+        "TEXT"
+      ]
+    },
+    "ui_primitive_type": {
+      "enum": [
+        "TREETABLE"
+      ]
+    },
+    "annotation_type": {
+      "enum": [
+        "VISUAL"
+      ]
+    },
+    "stream_style": {
+        "$ref": "https://xviz.org/schema/style/stream_value.json"
+    },
+    "style_classes": {
+      "type": "array",
+      "items": {
+        "$ref": "https://xviz.org/schema/style/class.json"
+      },
+      "additionalItems": false
+    }
+  },
+  "allOf": [
+    {
+      "anyOf": [
+        {
+          "properties": {
+            "coordinate": {
+              "enum": [
+                "GEOGRAPHIC",
+                "IDENTITY"
+              ]
+            }
+          }
+        },
+        {
+          "properties": {
+            "coordinate": { "enum": ["VEHICLE_RELATIVE"] }
+          }
+        },
+        {
+          "properties": {
+            "coordinate": { "enum": ["DYNAMIC"] }
+          },
+          "required": ["transform_callback"]
+        }
+      ]
+    },
+    {
+      "anyOf": [
+        {
+          "properties": {
+            "category": {
+              "enum": [
+                "TIME_SERIES",
+                "VARIABLE"
+              ]
+            }
+          },
+          "required": ["scalar_type"]
+        },
+        {
+          "properties": {
+            "category": {
+              "enum": [
+                "FUTURE_INSTANCE",
+                "PRIMITIVE"
+              ]
+            }
+          },
+          "required": ["primitive_type"]
+        },
+        {
+          "properties": {
+            "category": {
+              "enum": [
+                "UI_PRIMITIVE"
+              ]
+            }
+          },
+          "required": ["ui_primitive_type"]
+        },
+        {
+          "properties": {
+            "category": {
+              "enum": [
+                "ANNOTATION"
+              ]
+            }
+          },
+          "required": ["annotation_type"]
+        },
+        {
+          "properties": {
+            "category": {
+              "enum": [
+                "POSE"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,22 @@
+{
+  "id": "https://xviz.org/schema/primitives/text.json",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "XVIZ Text primitive",
+  "type": "object",
+  "properties": {
+    "base": {
+      "$ref": "https://xviz.org/schema/core/primitive_base.json"
+    },
+    "type": {
+      "enum": ["TEXT"]
+    },
+    "position": {
+      "$ref": "https://xviz.org/schema/math/vector3x1.json"
+    },
+    "text": {
+      "type": "string"
+    }
+  },
+  "required": [ "position", "text" ],
+  "additionalProperties": false
+}

@@ -1,0 +1,31 @@
+{
+  "name": "@xviz/schema",
+  "description": "XVIZ JSON schema",
+  "license": "Apache-2.0",
+  "version": "1.0.8",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uber/xviz.git"
+  },
+  "main": "dist/es5/index.js",
+  "module": "dist/esm/index.js",
+  "esnext": "dist/es6/index.js",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "dependencies": {
+    "ajv": "^6.5.2",
+    "is": "^3.2.1",
+    "protobufjs": "https://github.com/jlisee/protobuf.js#ed8e699671da6f9a169074aa0f2a160cefe0844a"
+  },
+  "devDependencies": {
+    "ajv-cli": "^3.0.0"
+  },
+  "scripts": {
+    "build-schema": "node ./build-schema",
+    "build-protos": "yarn pbjs --keep-case --target json --proto-path ../.. --out dist/proto.v2.json ../../xviz/v2/*.proto",
+    "build": "npm run build-schema && npm run build-protos"
+  },
+  "gitHead": "8e323ac31950395d3513e5e34df32c44e304c321"
+}

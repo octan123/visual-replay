@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/data.js"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;AAGA;;AACA","sourcesContent":["/* eslint-disable */\n// AUTO-GENERATED - DO NOT EDIT\n\nimport SCHEMA_DATA from '@xviz/schema/dist/schema.json';\nimport PROTO_DATA from '@xviz/schema/dist/proto.v2.json';\n\nexport {SCHEMA_DATA, PROTO_DATA};\n"],"file":"data.js"}

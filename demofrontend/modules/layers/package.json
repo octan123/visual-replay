@@ -1,0 +1,22 @@
+{
+  "name": "@streetscape.gl/layers",
+  "description": "A collection of deck.gl map layers for autonomy visualization",
+  "license": "MIT",
+  "version": "1.0.8",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uber/streetscape.gl.git"
+  },
+  "main": "dist/es5/index.js",
+  "module": "dist/esm/index.js",
+  "esnext": "dist/es6/index.js",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {},
+  "peerDependencies": {
+    "@deck.gl/core": "^8.1.5",
+    "@deck.gl/layers": "^8.l.5"
+  }
+}

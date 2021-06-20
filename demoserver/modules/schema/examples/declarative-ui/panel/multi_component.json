@@ -1,0 +1,16 @@
+{
+  "type": "PANEL",
+  "name": "One",
+  "children": [
+    {
+      "type": "METRIC",
+      "streams": ["/vehicle/velocity"],
+      "title": "Velocity"
+    },
+    {
+      "type": "METRIC",
+      "streams": ["/vehicle/acceleration"],
+      "title": "Acceleration"
+    }
+  ]
+}

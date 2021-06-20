@@ -1,0 +1,111 @@
+{
+  "id": "https://xviz.org/schema/style/stream_value.json",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "XVIZ Stream Style Value",
+  "type": "object",
+  "properties": {
+      "fill_color": {
+        "$ref": "https://xviz.org/schema/style/_color.json"
+      },
+      "stroke_color": {
+        "$ref": "https://xviz.org/schema/style/_color.json"
+      },
+      "stroke_width": {
+        "type": "number"
+      },
+      "radius": {
+        "type": "number"
+      },
+      "text_size": {
+        "type": "number"
+      },
+      "text_rotation": {
+        "type": "number"
+      },
+      "text_anchor": {
+        "enum": ["START", "MIDDLE", "END"]
+      },
+      "text_baseline": {
+        "enum": ["TOP", "CENTER", "BOTTOM"]
+      },
+      "height": {
+        "type": "number"
+      },
+      "radius_pixels": {
+        "type": "number",
+        "minimum": 0
+      },
+      "radius_min_pixels": {
+        "type": "number",
+        "minimum": 0
+      },
+      "radius_max_pixels": {
+        "type": "number",
+        "minimum": 0
+      },
+      "stroke_width_min_pixels": {
+        "type": "number",
+        "minimum": 0
+      },
+      "stroke_width_max_pixels": {
+        "type": "number",
+        "minimum": 0
+      },
+      "opacity": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 1
+      },
+      "stroked": {
+        "type": "boolean"
+      },
+      "filled": {
+        "type": "boolean"
+      },
+      "extruded": {
+        "type": "boolean"
+      },
+      "font_family": {
+        "type": "string"
+      },
+      "font_weight": {
+        "type": "number"
+      },
+      "point_color_mode": {
+        "enum": ["ELEVATION", "DISTANCE_TO_VEHICLE"]
+      },
+      "point_color_domain": {
+        "type": "array",
+        "minItems": 2,
+        "maxItems": 2,
+        "items": {
+          "type": "number"
+        }
+      }
+  },
+  "anyOf": [
+      {"required": ["fill_color"]},
+      {"required": ["stroke_color"]},
+      {"required": ["stroke_width"]},
+      {"required": ["radius"]},
+      {"required": ["radius_pixels"]},
+      {"required": ["text_size"]},
+      {"required": ["text_rotation"]},
+      {"required": ["text_anchor"]},
+      {"required": ["text_baseline"]},
+      {"required": ["radius_min_pixels"]},
+      {"required": ["radius_max_pixels"]},
+      {"required": ["stroke_width_min_pixels"]},
+      {"required": ["stroke_width_max_pixels"]},
+      {"required": ["opacity"]},
+      {"required": ["stroked"]},
+      {"required": ["filled"]},
+      {"required": ["extruded"]},
+      {"required": ["font_family"]},
+      {"required": ["font_weight"]},
+      {"required": ["point_color_mode"]},
+      {"required": ["point_color_domain"]}
+
+  ],
+  "additionalProperties": false
+}

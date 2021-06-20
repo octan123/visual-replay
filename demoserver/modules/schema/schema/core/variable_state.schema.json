@@ -1,0 +1,19 @@
+{
+  "id": "https://xviz.org/schema/core/variable_state.json",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "XVIZ Variable State",
+  "type": "object",
+  "properties": {
+    "variables": {
+      "type": "array",
+      "items": {
+        "$ref": "https://xviz.org/schema/core/variable.json"
+      },
+      "additionalItems": false
+    }
+  },
+  "required": [
+    "variables"
+  ],
+  "additionalProperties": false
+}

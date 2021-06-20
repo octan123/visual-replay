@@ -1,0 +1,31 @@
+{
+  "id": "https://xviz.org/schema/core/timeseries_state.schema.json",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "XVIZ Timeseries State",
+  "type": "object",
+  "properties": {
+    "timestamp": {
+      "type": "number",
+      "minimum": 0
+    },
+    "streams": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "additionalItems": false
+    },
+    "values": {
+      "$ref": "https://xviz.org/schema/core/values.schema.json"
+    },
+    "object_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "timestamp",
+    "streams",
+    "values"
+  ],
+  "additionalProperties": false
+}

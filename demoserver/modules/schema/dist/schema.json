@@ -1,0 +1,2241 @@
+{
+  "envelope.schema.json": {
+    "id": "https://xviz.org/schema/envelope.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "XVIZ data envelope",
+    "type": "object",
+    "properties": {
+      "type": {},
+      "data": {}
+    },
+    "anyOf": [
+      {
+        "properties": {
+          "type": {
+            "type": "string",
+            "pattern": "^((?!xviz/).)*$"
+          },
+          "data": {
+            "type": "object"
+          }
+        }
+      },
+      {
+        "properties": {
+          "type": {
+            "enum": [
+              "xviz/start"
+            ]
+          },
+          "data": {
+            "$ref": "https://xviz.org/schema/session/start.json"
+          }
+        }
+      },
+      {
+        "properties": {
+          "type": {
+            "enum": [
+              "xviz/metadata"
+            ]
+          },
+          "data": {
+            "$ref": "https://xviz.org/schema/session/metadata.json"
+          }
+        }
+      },
+      {
+        "properties": {
+          "type": {
+            "enum": [
+              "xviz/transform_log"
+            ]
+          },
+          "data": {
+            "$ref": "https://xviz.org/schema/session/transform_log.json"
+          }
+        }
+      },
+      {
+        "properties": {
+          "type": {
+            "enum": [
+              "xviz/state_update"
+            ]
+          },
+          "data": {
+            "$ref": "https://xviz.org/schema/session/state_update.json"
+          }
+        }
+      },
+      {
+        "properties": {
+          "type": {
+            "enum": [
+              "xviz/transform_log_done"
+            ]
+          },
+          "data": {
+            "$ref": "https://xviz.org/schema/session/transform_log_done.json"
+          }
+        }
+      },
+      {
+        "properties": {
+          "type": {
+            "enum": [
+              "xviz/reconfigure"
+            ]
+          },
+          "data": {
+            "$ref": "https://xviz.org/schema/session/reconfigure.json"
+          }
+        }
+      },
+      {
+        "properties": {
+          "type": {
+            "enum": [
+              "xviz/error"
+            ]
+          },
+          "data": {
+            "$ref": "https://xviz.org/schema/session/error.json"
+          }
+        }
+      },
+      {
+        "properties": {
+          "type": {
+            "enum": [
+              "xviz/transform_point_in_time"
+            ]
+          },
+          "data": {
+            "$ref": "https://xviz.org/schema/session/transform_point_in_time.json"
+          }
+        }
+      }
+    ],
+    "required": [
+      "type",
+      "data"
+    ],
+    "additionalProperties": false
+  },
+  "ui-primitives/treetable.schema.json": {
+    "id": "https://xviz.org/schema/ui-primitives/treetable.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "XVIZ Treetable",
+    "type": "object",
+    "properties": {
+      "columns": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "display_text": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "INT32",
+                "DOUBLE",
+                "STRING",
+                "BOOLEAN"
+              ]
+            },
+            "unit": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "display_text",
+            "type"
+          ],
+          "additionalProperties": false
+        },
+        "additionalItems": false
+      },
+      "nodes": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "parent": {
+              "type": "integer"
+            },
+            "column_values": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "additionalItems": false
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": false
+        },
+        "additionalItems": false
+      }
+    },
+    "additionalProperties": false
+  },
+  "style/_color.schema.json": {
+    "id": "https://xviz.org/schema/style/_color.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "Internal XVIZ RGBA color type",
+    "oneOf": [
+      {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "minimum": 0,
+        "maximum": 255,
+        "minItems": 3,
+        "maxItems": 4,
+        "additionalItems": false
+      },
+      {
+        "type": "string",
+        "pattern": "^#([0-9a-fA-F]{3,4}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})$"
+      }
+    ]
+  },
+  "style/class.schema.json": {
+    "id": "https://xviz.org/schema/style/class.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "XVIZ Style Class",
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string"
+      },
+      "style": {
+        "$ref": "https://xviz.org/schema/style/object_value.json"
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "name",
+      "style"
+    ]
+  },
+  "style/object_value.schema.json": {
+    "id": "https://xviz.org/schema/style/object_value.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "XVIZ Object Style Value",
+    "type": "object",
+    "properties": {
+      "fill_color": {
+        "$ref": "https://xviz.org/schema/style/_color.json"
+      },
+      "stroke_color": {
+        "$ref": "https://xviz.org/schema/style/_color.json"
+      },
+      "stroke_width": {
+        "type": "number"
+      },
+      "radius": {
+        "type": "number"
+      },
+      "text_size": {
+        "type": "number"
+      },
+      "text_rotation": {
+        "type": "number"
+      },
+      "text_anchor": {
+        "enum": [
+          "START",
+          "MIDDLE",
+          "END"
+        ]
+      },
+      "text_baseline": {
+        "enum": [
+          "TOP",
+          "CENTER",
+          "BOTTOM"
+        ]
+      },
+      "height": {
+        "type": "number"
+      }
+    },
+    "anyOf": [
+      {
+        "required": [
+          "fill_color"
+        ]
+      },
+      {
+        "required": [
+          "stroke_color"
+        ]
+      },
+      {
+        "required": [
+          "stroke_width"
+        ]
+      },
+      {
+        "required": [
+          "radius"
+        ]
+      },
+      {
+        "required": [
+          "text_size"
+        ]
+      },
+      {
+        "required": [
+          "text_rotation"
+        ]
+      },
+      {
+        "required": [
+          "text_anchor"
+        ]
+      },
+      {
+        "required": [
+          "text_baseline"
+        ]
+      }
+    ],
+    "additionalProperties": false
+  },
+  "style/stream_value.schema.json": {
+    "id": "https://xviz.org/schema/style/stream_value.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "XVIZ Stream Style Value",
+    "type": "object",
+    "properties": {
+      "fill_color": {
+        "$ref": "https://xviz.org/schema/style/_color.json"
+      },
+      "stroke_color": {
+        "$ref": "https://xviz.org/schema/style/_color.json"
+      },
+      "stroke_width": {
+        "type": "number"
+      },
+      "radius": {
+        "type": "number"
+      },
+      "text_size": {
+        "type": "number"
+      },
+      "text_rotation": {
+        "type": "number"
+      },
+      "text_anchor": {
+        "enum": [
+          "START",
+          "MIDDLE",
+          "END"
+        ]
+      },
+      "text_baseline": {
+        "enum": [
+          "TOP",
+          "CENTER",
+          "BOTTOM"
+        ]
+      },
+      "height": {
+        "type": "number"
+      },
+      "radius_pixels": {
+        "type": "number",
+        "minimum": 0
+      },
+      "radius_min_pixels": {
+        "type": "number",
+        "minimum": 0
+      },
+      "radius_max_pixels": {
+        "type": "number",
+        "minimum": 0
+      },
+      "stroke_width_min_pixels": {
+        "type": "number",
+        "minimum": 0
+      },
+      "stroke_width_max_pixels": {
+        "type": "number",
+        "minimum": 0
+      },
+      "opacity": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 1
+      },
+      "stroked": {
+        "type": "boolean"
+      },
+      "filled": {
+        "type": "boolean"
+      },
+      "extruded": {
+        "type": "boolean"
+      },
+      "font_family": {
+        "type": "string"
+      },
+      "font_weight": {
+        "type": "number"
+      },
+      "point_color_mode": {
+        "enum": [
+          "ELEVATION",
+          "DISTANCE_TO_VEHICLE"
+        ]
+      },
+      "point_color_domain": {
+        "type": "array",
+        "minItems": 2,
+        "maxItems": 2,
+        "items": {
+          "type": "number"
+        }
+      }
+    },
+    "anyOf": [
+      {
+        "required": [
+          "fill_color"
+        ]
+      },
+      {
+        "required": [
+          "stroke_color"
+        ]
+      },
+      {
+        "required": [
+          "stroke_width"
+        ]
+      },
+      {
+        "required": [
+          "radius"
+        ]
+      },
+      {
+        "required": [
+          "radius_pixels"
+        ]
+      },
+      {
+        "required": [
+          "text_size"
+        ]
+      },
+      {
+        "required": [
+          "text_rotation"
+        ]
+      },
+      {
+        "required": [
+          "text_anchor"
+        ]
+      },
+      {
+        "required": [
+          "text_baseline"
+        ]
+      },
+      {
+        "required": [
+          "radius_min_pixels"
+        ]
+      },
+      {
+        "required": [
+          "radius_max_pixels"
+        ]
+      },
+      {
+        "required": [
+          "stroke_width_min_pixels"
+        ]
+      },
+      {
+        "required": [
+          "stroke_width_max_pixels"
+        ]
+      },
+      {
+        "required": [
+          "opacity"
+        ]
+      },
+      {
+        "required": [
+          "stroked"
+        ]
+      },
+      {
+        "required": [
+          "filled"
+        ]
+      },
+      {
+        "required": [
+          "extruded"
+        ]
+      },
+      {
+        "required": [
+          "font_family"
+        ]
+      },
+      {
+        "required": [
+          "font_weight"
+        ]
+      },
+      {
+        "required": [
+          "point_color_mode"
+        ]
+      },
+      {
+        "required": [
+          "point_color_domain"
+        ]
+      }
+    ],
+    "additionalProperties": false
+  },
+  "session/camera_info.schema.json": {
+    "id": "https://xviz.org/schema/session/camera_info.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "XVIZ Camera Information",
+    "type": "object",
+    "properties": {
+      "human_name": {
+        "type": "string"
+      },
+      "source": {
+        "type": "string"
+      },
+      "vehicle_position": {
+        "$ref": "https://xviz.org/schema/math/vector3x1.json"
+      },
+      "vehicle_orientation": {
+        "$ref": "https://xviz.org/schema/math/matrix3x3.json"
+      },
+      "pixel_width": {
+        "type": "number",
+        "minimum": 0
+      },
+      "pixel_height": {
+        "type": "number",
+        "minimum": 0
+      },
+      "rectification_projection": {
+        "$ref": "https://xviz.org/schema/math/matrix3x3.json"
+      },
+      "gl_projection": {
+        "$ref": "https://xviz.org/schema/math/matrix4x4.json"
+      }
+    },
+    "required": [
+      "human_name",
+      "source"
+    ],
+    "dependencies": {
+      "pixel_width": [
+        "pixel_height"
+      ],
+      "pixel_height": [
+        "pixel_width"
+      ],
+      "rectification_projection": [
+        "pixel_width",
+        "pixel_height"
+      ],
+      "gl_projection": [
+        "rectification_projection",
+        "vehicle_position",
+        "vehicle_orientation"
+      ]
+    },
+    "additionalProperties": false
+  },
+  "session/error.schema.json": {
+    "id": "https://xviz.org/schema/session/error.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "XVIZ Session Error",
+    "type": "object",
+    "properties": {
+      "message": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "message"
+    ],
+    "additionalProperties": false
+  },
+  "session/log_info.schema.json": {
+    "id": "https://xviz.org/schema/session/log_info.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "XVIZ Metadata Log timing information",
+    "type": "object",
+    "properties": {
+      "start_time": {
+        "type": "number"
+      },
+      "end_time": {
+        "type": "number"
+      }
+    },
+    "additionalProperties": true
+  },
+  "session/metadata.schema.json": {
+    "id": "https://xviz.org/schema/session/metadata.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "XVIZ Session Metadata",
+    "type": "object",
+    "properties": {
+      "version": {
+        "type": "string"
+      },
+      "streams": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "https://xviz.org/schema/session/stream_metadata.json"
+        }
+      },
+      "cameras": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "https://xviz.org/schema/session/camera_info.json"
+        }
+      },
+      "stream_aliases": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        }
+      },
+      "ui_config": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "https://xviz.org/schema/session/ui_panel_info.json"
+        }
+      },
+      "log_info": {
+        "$ref": "https://xviz.org/schema/session/log_info.json"
+      },
+      "map_info": {
+        "type": "object"
+      },
+      "vehicle_info": {
+        "type": "object"
+      }
+    },
+    "required": [
+      "version"
+    ],
+    "additionalProperties": false
+  },
+  "session/reconfigure.schema.json": {
+    "id": "https://xviz.org/schema/session/reconfigure.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "XVIZ Reconfigure message",
+    "type": "object",
+    "properties": {
+      "update_type": {
+        "enum": [
+          "DELTA",
+          "FULL"
+        ]
+      },
+      "config_update": {
+        "type": "object"
+      }
+    },
+    "required": [
+      "update_type",
+      "config_update"
+    ],
+    "additionalProperties": false
+  },
+  "session/start.schema.json": {
+    "id": "https://xviz.org/schema/session/start.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "XVIZ Session Start",
+    "type": "object",
+    "properties": {
+      "version": {
+        "type": "string",
+        "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(-(0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(\\.(0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*)?(\\+[0-9a-zA-Z-]+(\\.[0-9a-zA-Z-]+)*)?$"
+      },
+      "profile": {
+        "type": "string"
+      },
+      "session_type": {},
+      "message_format": {
+        "type": "string",
+        "enum": [
+          "JSON",
+          "BINARY"
+        ]
+      },
+      "log": {}
+    },
+    "required": [
+      "version"
+    ],
+    "oneOf": [
+      {
+        "properties": {
+          "session_type": {
+            "type": "string",
+            "enum": [
+              "LOG"
+            ]
+          },
+          "log": {
+            "pattern": ".*"
+          }
+        },
+        "required": [
+          "version",
+          "log"
+        ]
+      },
+      {
+        "properties": {
+          "session_type": {
+            "type": "string",
+            "enum": [
+              "LIVE"
+            ]
+          }
+        },
+        "required": [
+          "version"
+        ],
+        "not": {
+          "required": [
+            "log"
+          ]
+        }
+      }
+    ],
+    "additionalProperties": false
+  },
+  "session/state_update.schema.json": {
+    "id": "https://xviz.org/schema/session/state_update.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "XVIZ Stream Update",
+    "type": "object",
+    "properties": {
+      "update_type": {
+        "type": "string",
+        "enum": [
+          "COMPLETE_STATE",
+          "INCREMENTAL",
+          "SNAPSHOT",
+          "PERSISTENT"
+        ]
+      },
+      "updates": {
+        "type": "array",
+        "items": {
+          "$ref": "https://xviz.org/schema/core/stream_set.json"
+        },
+        "minItems": 1,
+        "additionalItems": false
+      }
+    },
+    "required": [
+      "update_type",
+      "updates"
+    ],
+    "additionalProperties": false
+  },
+  "session/stream_metadata.schema.json": {
+    "id": "https://xviz.org/schema/session/stream_metadata.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "XVIZ Stream Metadata",
+    "type": "object",
+    "properties": {
+      "source": {
+        "type": "string"
+      },
+      "units": {
+        "type": "string"
+      },
+      "coordinate": {},
+      "transform": {
+        "$ref": "https://xviz.org/schema/math/matrix4x4.json"
+      },
+      "transform_callback": {
+        "type": "string"
+      },
+      "category": {
+        "enum": [
+          "ANNOTATION",
+          "FUTURE_INSTANCE",
+          "POSE",
+          "PRIMITIVE",
+          "UI_PRIMITIVE",
+          "TIME_SERIES",
+          "VARIABLE"
+        ]
+      },
+      "scalar_type": {
+        "enum": [
+          "FLOAT",
+          "INT32",
+          "BOOL",
+          "STRING"
+        ]
+      },
+      "primitive_type": {
+        "enum": [
+          "CIRCLE",
+          "IMAGE",
+          "POINT",
+          "POLYGON",
+          "POLYLINE",
+          "STADIUM",
+          "TEXT"
+        ]
+      },
+      "ui_primitive_type": {
+        "enum": [
+          "TREETABLE"
+        ]
+      },
+      "annotation_type": {
+        "enum": [
+          "VISUAL"
+        ]
+      },
+      "stream_style": {
+        "$ref": "https://xviz.org/schema/style/stream_value.json"
+      },
+      "style_classes": {
+        "type": "array",
+        "items": {
+          "$ref": "https://xviz.org/schema/style/class.json"
+        },
+        "additionalItems": false
+      }
+    },
+    "allOf": [
+      {
+        "anyOf": [
+          {
+            "properties": {
+              "coordinate": {
+                "enum": [
+                  "GEOGRAPHIC",
+                  "IDENTITY"
+                ]
+              }
+            }
+          },
+          {
+            "properties": {
+              "coordinate": {
+                "enum": [
+                  "VEHICLE_RELATIVE"
+                ]
+              }
+            }
+          },
+          {
+            "properties": {
+              "coordinate": {
+                "enum": [
+                  "DYNAMIC"
+                ]
+              }
+            },
+            "required": [
+              "transform_callback"
+            ]
+          }
+        ]
+      },
+      {
+        "anyOf": [
+          {
+            "properties": {
+              "category": {
+                "enum": [
+                  "TIME_SERIES",
+                  "VARIABLE"
+                ]
+              }
+            },
+            "required": [
+              "scalar_type"
+            ]
+          },
+          {
+            "properties": {
+              "category": {
+                "enum": [
+                  "FUTURE_INSTANCE",
+                  "PRIMITIVE"
+                ]
+              }
+            },
+            "required": [
+              "primitive_type"
+            ]
+          },
+          {
+            "properties": {
+              "category": {
+                "enum": [
+                  "UI_PRIMITIVE"
+                ]
+              }
+            },
+            "required": [
+              "ui_primitive_type"
+            ]
+          },
+          {
+            "properties": {
+              "category": {
+                "enum": [
+                  "ANNOTATION"
+                ]
+              }
+            },
+            "required": [
+              "annotation_type"
+            ]
+          },
+          {
+            "properties": {
+              "category": {
+                "enum": [
+                  "POSE"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "additionalProperties": false
+  },
+  "session/transform_log.schema.json": {
+    "id": "https://xviz.org/schema/session/transform_log.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "XVIZ Session Transform Log",
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "string"
+      },
+      "start_timestamp": {
+        "type": "number"
+      },
+      "end_timestamp": {
+        "type": "number"
+      },
+      "desired_streams": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "additionalItems": false
+      }
+    },
+    "required": [
+      "id"
+    ],
+    "additionalProperties": false
+  },
+  "session/transform_log_done.schema.json": {
+    "id": "https://xviz.org/schema/session/transform_log_done.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "XVIZ Session Transform Log Done",
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "id"
+    ],
+    "additionalProperties": false
+  },
+  "session/transform_point_in_time.schema.json": {
+    "id": "https://xviz.org/schema/session/transform_point_in_time.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "XVIZ Session Transform Point In Time",
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "string"
+      },
+      "query_timestamp": {
+        "type": "number"
+      },
+      "desired_streams": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "additionalItems": false
+      }
+    },
+    "required": [
+      "id",
+      "query_timestamp"
+    ],
+    "additionalProperties": false
+  },
+  "session/ui_panel_info.schema.json": {
+    "id": "https://xviz.org/schema/session/ui_panel_info.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "XVIZ Session UI Panel Info",
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string"
+      },
+      "needed_streams": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "additionalItems": false
+      },
+      "config": {
+        "oneOf": [
+          {
+            "type": "object"
+          },
+          {
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "required": [
+      "name",
+      "config"
+    ],
+    "additionalProperties": false
+  },
+  "primitives/circle.schema.json": {
+    "id": "https://xviz.org/schema/primitives/circle.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "XVIZ Point primitive",
+    "type": "object",
+    "properties": {
+      "base": {
+        "$ref": "https://xviz.org/schema/core/primitive_base.json"
+      },
+      "type": {
+        "enum": [
+          "CIRCLE"
+        ]
+      },
+      "center": {
+        "$ref": "https://xviz.org/schema/math/vector3x1.json"
+      },
+      "radius": {
+        "type": "number"
+      }
+    },
+    "required": [
+      "center",
+      "radius"
+    ],
+    "additionalProperties": false
+  },
+  "primitives/image.schema.json": {
+    "id": "https://xviz.org/schema/primitives/image.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "XVIZ Image primitive",
+    "type": "object",
+    "properties": {
+      "base": {
+        "$ref": "https://xviz.org/schema/core/primitive_base.json"
+      },
+      "type": {
+        "enum": [
+          "IMAGE"
+        ]
+      },
+      "position": {
+        "$ref": "https://xviz.org/schema/math/vector3x1.json"
+      },
+      "data": {
+        "type": "string",
+        "contentEncoding": "base64",
+        "pattern": "^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$"
+      },
+      "width_px": {
+        "type": "integer",
+        "minValue": 0
+      },
+      "height_px": {
+        "type": "integer",
+        "minValue": 0
+      }
+    },
+    "required": [
+      "data",
+      "width_px",
+      "height_px"
+    ],
+    "additionalProperties": false
+  },
+  "primitives/point.schema.json": {
+    "id": "https://xviz.org/schema/primitives/point.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "XVIZ Point primitive",
+    "type": "object",
+    "properties": {
+      "base": {
+        "$ref": "https://xviz.org/schema/core/primitive_base.json"
+      },
+      "type": {
+        "enum": [
+          "POINT"
+        ]
+      },
+      "points": {
+        "$ref": "https://xviz.org/schema/math/point3d_list.schema.json"
+      },
+      "colors": {
+        "type": "array",
+        "oneOf": [
+          {
+            "items": {
+              "$ref": "https://xviz.org/schema/style/_color.json"
+            }
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minimum": 0,
+            "maximum": 255,
+            "minItems": 4
+          }
+        ],
+        "additionalItems": false
+      }
+    },
+    "required": [
+      "points"
+    ],
+    "additionalProperties": false
+  },
+  "primitives/polygon.schema.json": {
+    "id": "https://xviz.org/schema/primitives/polygon.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "XVIZ Polygon primitive",
+    "type": "object",
+    "properties": {
+      "base": {
+        "$ref": "https://xviz.org/schema/core/primitive_base.json"
+      },
+      "vertices": {
+        "$ref": "https://xviz.org/schema/math/point3d_list.schema.json"
+      }
+    },
+    "required": [
+      "vertices"
+    ],
+    "additionalProperties": false
+  },
+  "primitives/polyline.schema.json": {
+    "id": "https://xviz.org/schema/primitives/polyline.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "XVIZ Polyline primitive",
+    "type": "object",
+    "properties": {
+      "base": {
+        "$ref": "https://xviz.org/schema/core/primitive_base.json"
+      },
+      "vertices": {
+        "$ref": "https://xviz.org/schema/math/point3d_list.schema.json"
+      }
+    },
+    "required": [
+      "vertices"
+    ],
+    "additionalProperties": false
+  },
+  "primitives/stadium.schema.json": {
+    "id": "https://xviz.org/schema/primitives/stadium.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "XVIZ Point primitive",
+    "type": "object",
+    "properties": {
+      "base": {
+        "$ref": "https://xviz.org/schema/core/primitive_base.json"
+      },
+      "start": {
+        "$ref": "https://xviz.org/schema/math/vector3x1.json"
+      },
+      "end": {
+        "$ref": "https://xviz.org/schema/math/vector3x1.json"
+      },
+      "radius": {
+        "type": "number"
+      }
+    },
+    "required": [
+      "start",
+      "end",
+      "radius"
+    ],
+    "additionalProperties": false
+  },
+  "primitives/text.schema.json": {
+    "id": "https://xviz.org/schema/primitives/text.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "XVIZ Text primitive",
+    "type": "object",
+    "properties": {
+      "base": {
+        "$ref": "https://xviz.org/schema/core/primitive_base.json"
+      },
+      "type": {
+        "enum": [
+          "TEXT"
+        ]
+      },
+      "position": {
+        "$ref": "https://xviz.org/schema/math/vector3x1.json"
+      },
+      "text": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "position",
+      "text"
+    ],
+    "additionalProperties": false
+  },
+  "math/matrix3x3.schema.json": {
+    "id": "https://xviz.org/schema/math/matrix3x3.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "XVIZ Point primitive",
+    "oneOf": [
+      {
+        "type": "array",
+        "items": {
+          "$ref": "https://xviz.org/schema/math/vector3x1.json"
+        },
+        "minItems": 3,
+        "maxItems": 3,
+        "additionalItems": false
+      },
+      {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "minItems": 9,
+        "maxItems": 9,
+        "additionalItems": false
+      }
+    ]
+  },
+  "math/matrix4x4.schema.json": {
+    "id": "https://xviz.org/schema/math/matrix4x4.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "XVIZ Point primitive",
+    "oneOf": [
+      {
+        "type": "array",
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 4,
+          "maxItems": 4,
+          "additionalItems": false
+        },
+        "minItems": 4,
+        "maxItems": 4,
+        "additionalItems": false
+      },
+      {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "minItems": 16,
+        "maxItems": 16,
+        "additionalItems": false
+      }
+    ]
+  },
+  "math/point3d_list.schema.json": {
+    "id": "https://xviz.org/schema/math/point3d_list.schema.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "XVIZ Point 3D list",
+    "oneOf": [
+      {
+        "type": "array",
+        "items": {
+          "$ref": "https://xviz.org/schema/math/vector3x1.json"
+        },
+        "minItems": 1,
+        "additionalItems": false
+      },
+      {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "minItems": 3,
+        "additionalItems": false
+      }
+    ]
+  },
+  "math/vector3x1.schema.json": {
+    "id": "https://xviz.org/schema/math/vector3x1.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "XVIZ Point primitive",
+    "type": "array",
+    "items": {
+      "type": "number"
+    },
+    "minItems": 3,
+    "maxItems": 3,
+    "additionalItems": false
+  },
+  "declarative-ui/component_base.schema.json": {
+    "id": "https://xviz.org/schema/declarative-ui/component_base.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+      "type": {
+        "type": "string"
+      },
+      "title": {
+        "type": "string"
+      },
+      "description": {
+        "type": "string"
+      }
+    }
+  },
+  "declarative-ui/panel.schema.json": {
+    "id": "https://xviz.org/schema/declarative-ui/panel.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "Declarative UI Panel Info",
+    "allOf": [
+      {
+        "$ref": "#/definitions/with_children"
+      }
+    ],
+    "properties": {
+      "type": {
+        "enum": [
+          "PANEL"
+        ]
+      },
+      "name": {},
+      "layout": {},
+      "interactions": {},
+      "children": {}
+    },
+    "additionalProperties": false,
+    "definitions": {
+      "with_children": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "layout": {
+            "type": "string",
+            "enum": [
+              "VERTICAL",
+              "HORIZONTAL"
+            ]
+          },
+          "interactions": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "REORDERABLE",
+                "DRAG_OUT"
+              ]
+            },
+            "additionalItems": false
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "https://xviz.org/schema/declarative-ui/components/metric.json"
+                },
+                {
+                  "$ref": "https://xviz.org/schema/declarative-ui/components/plot.json"
+                },
+                {
+                  "$ref": "https://xviz.org/schema/declarative-ui/components/table.json"
+                },
+                {
+                  "$ref": "https://xviz.org/schema/declarative-ui/components/treetable.json"
+                },
+                {
+                  "$ref": "https://xviz.org/schema/declarative-ui/components/video.json"
+                },
+                {
+                  "$ref": "https://xviz.org/schema/declarative-ui/components/select.json"
+                },
+                {
+                  "$ref": "#/definitions/container"
+                }
+              ]
+            },
+            "additionalItems": false
+          }
+        },
+        "required": [
+          "name",
+          "children"
+        ]
+      },
+      "container": {
+        "title": "container",
+        "description": "Group of components",
+        "allOf": [
+          {
+            "$ref": "#/definitions/with_children"
+          }
+        ],
+        "properties": {
+          "type": {
+            "enum": [
+              "CONTAINER"
+            ]
+          },
+          "name": {},
+          "layout": {},
+          "interactions": {},
+          "children": {}
+        },
+        "required": [
+          "type"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "declarative-ui/components/_onchange.schema.json": {
+    "id": "https://xviz.org/schema/declarative-ui/components/_onchange.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+      "target": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "target"
+    ],
+    "additionalProperties": false
+  },
+  "declarative-ui/components/_tabular.schema.json": {
+    "id": "https://xviz.org/schema/declarative-ui/components/_tabular.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "allOf": [
+      {
+        "$ref": "https://xviz.org/schema/declarative-ui/component_base.json"
+      }
+    ],
+    "properties": {
+      "stream": {
+        "type": "string"
+      },
+      "displayObjectId": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "type",
+      "title",
+      "stream"
+    ]
+  },
+  "declarative-ui/components/metric.schema.json": {
+    "id": "https://xviz.org/schema/declarative-ui/components/metric.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "allOf": [
+      {
+        "$ref": "https://xviz.org/schema/declarative-ui/component_base.json"
+      }
+    ],
+    "properties": {
+      "type": {
+        "enum": [
+          "METRIC"
+        ]
+      },
+      "title": {},
+      "description": {},
+      "streams": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "minItems": 1,
+        "additionalItems": false
+      }
+    },
+    "required": [
+      "type",
+      "title",
+      "streams"
+    ],
+    "additionalProperties": false
+  },
+  "declarative-ui/components/plot.schema.json": {
+    "id": "https://xviz.org/schema/declarative-ui/components/plot.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "allOf": [
+      {
+        "$ref": "https://xviz.org/schema/declarative-ui/component_base.json"
+      }
+    ],
+    "properties": {
+      "type": {
+        "enum": [
+          "PLOT"
+        ]
+      },
+      "title": {},
+      "description": {},
+      "independentVariable": {
+        "type": "string"
+      },
+      "dependentVariables": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "minItems": 1,
+        "additionalItems": false
+      },
+      "regions": {
+        "type": "array",
+        "minItems": 1,
+        "additionalItems": false,
+        "items": {
+          "type": "object",
+          "properties": {
+            "x": {
+              "type": "string"
+            },
+            "yMin": {
+              "type": "string"
+            },
+            "yMax": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "x",
+            "yMin",
+            "yMax"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "anyOf": [
+      {
+        "required": [
+          "type",
+          "title",
+          "independentVariable",
+          "dependentVariables"
+        ]
+      },
+      {
+        "required": [
+          "type",
+          "title",
+          "regions"
+        ]
+      }
+    ],
+    "additionalProperties": false
+  },
+  "declarative-ui/components/select.schema.json": {
+    "id": "https://xviz.org/schema/declarative-ui/components/select.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "allOf": [
+      {
+        "$ref": "https://xviz.org/schema/declarative-ui/component_base.json"
+      }
+    ],
+    "properties": {
+      "type": {
+        "enum": [
+          "SELECT"
+        ]
+      },
+      "title": {},
+      "description": {},
+      "stream": {
+        "type": "string"
+      },
+      "onchange": {
+        "$ref": "https://xviz.org/schema/declarative-ui/components/_onchange.json"
+      }
+    },
+    "required": [
+      "type",
+      "title",
+      "stream",
+      "onchange"
+    ],
+    "additionalProperties": false
+  },
+  "declarative-ui/components/table.schema.json": {
+    "id": "https://xviz.org/schema/declarative-ui/components/table.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "allOf": [
+      {
+        "$ref": "https://xviz.org/schema/declarative-ui/components/_tabular.json"
+      }
+    ],
+    "properties": {
+      "type": {
+        "enum": [
+          "TABLE"
+        ]
+      },
+      "title": {},
+      "description": {},
+      "stream": {},
+      "displayObjectId": {}
+    },
+    "additionalProperties": false
+  },
+  "declarative-ui/components/treetable.schema.json": {
+    "id": "https://xviz.org/schema/declarative-ui/components/treetable.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "allOf": [
+      {
+        "$ref": "https://xviz.org/schema/declarative-ui/components/_tabular.json"
+      }
+    ],
+    "properties": {
+      "type": {
+        "enum": [
+          "TREETABLE"
+        ]
+      },
+      "title": {},
+      "description": {},
+      "stream": {},
+      "displayObjectId": {}
+    },
+    "additionalProperties": false
+  },
+  "declarative-ui/components/video.schema.json": {
+    "id": "https://xviz.org/schema/declarative-ui/components/video.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "allOf": [
+      {
+        "$ref": "https://xviz.org/schema/declarative-ui/component_base.json"
+      }
+    ],
+    "properties": {
+      "type": {
+        "enum": [
+          "VIDEO"
+        ]
+      },
+      "title": {},
+      "description": {},
+      "cameras": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "minItems": 1,
+        "additionalItems": false
+      }
+    },
+    "required": [
+      "type",
+      "cameras"
+    ],
+    "additionalProperties": false
+  },
+  "core/_annotation_list.schema.json": {
+    "id": "https://xviz.org/schema/core/_annotation_list.schema.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "Internal XVIZ annotation list",
+    "type": "array",
+    "items": {
+      "anyOf": [
+        {
+          "$ref": "https://xviz.org/schema/core/annotation_visual.json"
+        }
+      ]
+    },
+    "additionalItems": false
+  },
+  "core/annotation_base.schema.json": {
+    "id": "https://xviz.org/schema/core/annotation_base.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+      "object_id": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "object_id"
+    ]
+  },
+  "core/annotation_state.schema.json": {
+    "id": "https://xviz.org/schema/core/annotation_state.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "XVIZ Annotation State",
+    "type": "object",
+    "properties": {
+      "visuals": {
+        "type": "array",
+        "items": {
+          "$ref": "https://xviz.org/schema/core/annotation_visual.json"
+        },
+        "additionalItems": false
+      }
+    },
+    "additionalProperties": false
+  },
+  "core/annotation_visual.schema.json": {
+    "id": "https://xviz.org/schema/core/annotation_visual.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "XVIZ Visual Annotation",
+    "type": "object",
+    "properties": {
+      "base": {
+        "$ref": "https://xviz.org/schema/core/annotation_base.json"
+      },
+      "style_classes": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "additionalItems": false
+      },
+      "inline_style": {
+        "$ref": "https://xviz.org/schema/style/object_value.json"
+      }
+    },
+    "additionalProperties": false,
+    "anyOf": [
+      {
+        "required": [
+          "base",
+          "inline_style"
+        ]
+      },
+      {
+        "required": [
+          "base",
+          "style_classes"
+        ]
+      }
+    ]
+  },
+  "core/future_instances.schema.json": {
+    "id": "https://xviz.org/schema/core/future_instances.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "XVIZ Future Instances",
+    "type": "object",
+    "properties": {
+      "timestamps": {
+        "type": "array",
+        "minItems": 1,
+        "items": {
+          "type": "number",
+          "minimum": 0
+        },
+        "additionalItems": false
+      },
+      "primitives": {
+        "type": "array",
+        "minItems": 1,
+        "items": {
+          "$ref": "https://xviz.org/schema/core/primitive_state.json"
+        }
+      }
+    },
+    "required": [
+      "timestamps",
+      "primitives"
+    ],
+    "additionalProperties": false
+  },
+  "core/link_state.schema.json": {
+    "id": "https://xviz.org/schema/core/link_state.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "XVIZ Link State",
+    "type": "object",
+    "properties": {
+      "target_pose": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "target_pose"
+    ]
+  },
+  "core/pose.schema.json": {
+    "id": "https://xviz.org/schema/core/pose.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+      "timestamp": {
+        "type": "number",
+        "minimum": 0
+      },
+      "map_origin": {
+        "type": "object",
+        "properties": {
+          "longitude": {
+            "type": "number"
+          },
+          "latitude": {
+            "type": "number"
+          },
+          "altitude": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "longitude",
+          "latitude",
+          "altitude"
+        ],
+        "additionalProperties": false
+      },
+      "position": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "minItems": 3,
+        "maxItems": 3,
+        "additionalItems": false
+      },
+      "orientation": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "minItems": 3,
+        "maxItems": 3,
+        "additionalItems": false
+      }
+    },
+    "required": [
+      "position",
+      "orientation"
+    ],
+    "additionalProperties": true
+  },
+  "core/primitive_base.schema.json": {
+    "id": "https://xviz.org/schema/core/primitive_base.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+      "type": {
+        "type": "string"
+      },
+      "object_id": {
+        "type": "string"
+      },
+      "style": {
+        "$ref": "https://xviz.org/schema/style/object_value.json"
+      },
+      "classes": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "minItems": 1,
+        "additionalItems": false
+      }
+    }
+  },
+  "core/primitive_state.schema.json": {
+    "id": "https://xviz.org/schema/core/primitive_state.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "XVIZ Primitive State",
+    "type": "object",
+    "properties": {
+      "circles": {
+        "type": "array",
+        "items": {
+          "$ref": "https://xviz.org/schema/primitives/circle.json"
+        },
+        "additionalItems": false
+      },
+      "images": {
+        "type": "array",
+        "items": {
+          "$ref": "https://xviz.org/schema/primitives/image.json"
+        },
+        "additionalItems": false
+      },
+      "points": {
+        "type": "array",
+        "items": {
+          "$ref": "https://xviz.org/schema/primitives/point.json"
+        },
+        "additionalItems": false
+      },
+      "polygons": {
+        "type": "array",
+        "items": {
+          "$ref": "https://xviz.org/schema/primitives/polygon.json"
+        },
+        "additionalItems": false
+      },
+      "polylines": {
+        "type": "array",
+        "items": {
+          "$ref": "https://xviz.org/schema/primitives/polyline.json"
+        },
+        "additionalItems": false
+      },
+      "stadiums": {
+        "type": "array",
+        "items": {
+          "$ref": "https://xviz.org/schema/primitives/stadium.json"
+        },
+        "additionalItems": false
+      },
+      "texts": {
+        "type": "array",
+        "items": {
+          "$ref": "https://xviz.org/schema/primitives/text.json"
+        },
+        "additionalItems": false
+      }
+    },
+    "additionalProperties": false
+  },
+  "core/stream_set.schema.json": {
+    "id": "https://xviz.org/schema/core/stream_set.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "XVIZ Stream set",
+    "type": "object",
+    "properties": {
+      "timestamp": {
+        "type": "number"
+      },
+      "poses": {
+        "type": "object",
+        "properties": {
+          "/vehicle_pose": {
+            "$ref": "https://xviz.org/schema/core/pose.json"
+          }
+        },
+        "additionalProperties": {
+          "$ref": "https://xviz.org/schema/core/pose.json"
+        },
+        "required": [
+          "/vehicle_pose"
+        ]
+      },
+      "primitives": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "https://xviz.org/schema/core/primitive_state.json"
+        }
+      },
+      "ui_primitives": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "https://xviz.org/schema/core/ui_primitive_state.json"
+        }
+      },
+      "time_series": {
+        "type": "array",
+        "items": {
+          "$ref": "https://xviz.org/schema/core/timeseries_state.schema.json"
+        },
+        "minItems": 1,
+        "additionalItems": false
+      },
+      "future_instances": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "https://xviz.org/schema/core/future_instances.json"
+        }
+      },
+      "variables": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "https://xviz.org/schema/core/variable_state.json"
+        }
+      },
+      "annotations": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "https://xviz.org/schema/core/annotation_state.json"
+        }
+      },
+      "no_data_streams": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "additionalItems": false
+      },
+      "links": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "https://xviz.org/schema/core/link_state.json"
+        }
+      }
+    },
+    "required": [
+      "timestamp"
+    ],
+    "anyOf": [
+      {
+        "required": [
+          "poses"
+        ]
+      },
+      {
+        "required": [
+          "primitives"
+        ]
+      },
+      {
+        "required": [
+          "ui_primitives"
+        ]
+      },
+      {
+        "required": [
+          "time_series"
+        ]
+      },
+      {
+        "required": [
+          "future_instances"
+        ]
+      },
+      {
+        "required": [
+          "variables"
+        ]
+      },
+      {
+        "required": [
+          "annotations"
+        ]
+      }
+    ],
+    "additionalProperties": false
+  },
+  "core/timeseries_state.schema.json": {
+    "id": "https://xviz.org/schema/core/timeseries_state.schema.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "XVIZ Timeseries State",
+    "type": "object",
+    "properties": {
+      "timestamp": {
+        "type": "number",
+        "minimum": 0
+      },
+      "streams": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "additionalItems": false
+      },
+      "values": {
+        "$ref": "https://xviz.org/schema/core/values.schema.json"
+      },
+      "object_id": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "timestamp",
+      "streams",
+      "values"
+    ],
+    "additionalProperties": false
+  },
+  "core/ui_primitive_state.schema.json": {
+    "id": "https://xviz.org/schema/core/ui_primitive_state.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "XVIZ UI Primitive State",
+    "type": "object",
+    "properties": {
+      "treetable": {
+        "$ref": "https://xviz.org/schema/ui-primitives/treetable.json"
+      }
+    },
+    "additionalProperties": false
+  },
+  "core/value.schema.json": {
+    "id": "https://xviz.org/schema/core/value.schema.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "XVIZ Value",
+    "oneOf": [
+      {
+        "type": "number"
+      },
+      {
+        "type": "string"
+      },
+      {
+        "type": "boolean"
+      }
+    ]
+  },
+  "core/values.schema.json": {
+    "id": "https://xviz.org/schema/core/values.schema.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "XVIZ Values",
+    "type": "object",
+    "properties": {
+      "doubles": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "additionalItems": false
+      },
+      "int32s": {
+        "type": "array",
+        "items": {
+          "type": "integer"
+        },
+        "additionalItems": false
+      },
+      "bools": {
+        "type": "array",
+        "items": {
+          "type": "boolean"
+        },
+        "additionalItems": false
+      },
+      "strings": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "additionalItems": false
+      }
+    },
+    "additionalProperties": false,
+    "anyOf": [
+      {
+        "required": [
+          "doubles"
+        ]
+      },
+      {
+        "required": [
+          "int32s"
+        ]
+      },
+      {
+        "required": [
+          "bools"
+        ]
+      },
+      {
+        "required": [
+          "strings"
+        ]
+      }
+    ]
+  },
+  "core/variable.schema.json": {
+    "id": "https://xviz.org/schema/core/variable.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "XVIZ Variable State",
+    "type": "object",
+    "properties": {
+      "base": {
+        "type": "object",
+        "properties": {
+          "object_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "values": {
+        "$ref": "https://xviz.org/schema/core/values.schema.json"
+      }
+    },
+    "required": [
+      "values"
+    ],
+    "additionalProperties": false
+  },
+  "core/variable_state.schema.json": {
+    "id": "https://xviz.org/schema/core/variable_state.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "XVIZ Variable State",
+    "type": "object",
+    "properties": {
+      "variables": {
+        "type": "array",
+        "items": {
+          "$ref": "https://xviz.org/schema/core/variable.json"
+        },
+        "additionalItems": false
+      }
+    },
+    "required": [
+      "variables"
+    ],
+    "additionalProperties": false
+  }
+}

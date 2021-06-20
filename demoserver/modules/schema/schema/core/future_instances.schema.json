@@ -1,0 +1,29 @@
+{
+  "id": "https://xviz.org/schema/core/future_instances.json",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "XVIZ Future Instances",
+  "type": "object",
+  "properties": {
+    "timestamps": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "number",
+        "minimum": 0
+      },
+      "additionalItems": false
+    },
+    "primitives": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "https://xviz.org/schema/core/primitive_state.json"
+      }
+    }
+  },
+  "required": [
+    "timestamps",
+    "primitives"
+  ],
+  "additionalProperties": false
+}

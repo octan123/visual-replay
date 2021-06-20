@@ -1,0 +1,115 @@
+{
+  "id": "https://xviz.org/schema/core/stream_set.json",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "XVIZ Stream set",
+  "type": "object",
+  "properties": {
+    "timestamp": {
+      "type": "number"
+    },
+    "poses": {
+      "type": "object",
+      "properties": {
+        "/vehicle_pose": {
+          "$ref": "https://xviz.org/schema/core/pose.json"
+        }
+      },
+      "additionalProperties": {
+        "$ref": "https://xviz.org/schema/core/pose.json"
+      },
+      "required": [ "/vehicle_pose" ]
+    },
+    "primitives": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "https://xviz.org/schema/core/primitive_state.json"
+      }
+    },
+    "ui_primitives": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "https://xviz.org/schema/core/ui_primitive_state.json"
+      }
+    },
+    "time_series": {
+      "type": "array",
+      "items": {
+        "$ref": "https://xviz.org/schema/core/timeseries_state.schema.json"
+      },
+      "minItems": 1,
+      "additionalItems": false
+    },
+    "future_instances": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "https://xviz.org/schema/core/future_instances.json"
+      }
+    },
+    "variables": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "https://xviz.org/schema/core/variable_state.json"
+      }
+    },
+    "annotations": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "https://xviz.org/schema/core/annotation_state.json"
+      }
+    },
+    "no_data_streams": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "additionalItems": false
+    },
+    "links": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "https://xviz.org/schema/core/link_state.json"
+      }
+    }
+  },
+  "required": [
+    "timestamp"
+  ],
+  "anyOf": [
+    {
+      "required": [
+        "poses"
+      ]
+    },
+    {
+      "required": [
+        "primitives"
+      ]
+    },
+    {
+      "required": [
+        "ui_primitives"
+      ]
+    },
+    {
+      "required": [
+        "time_series"
+      ]
+    },
+    {
+      "required": [
+        "future_instances"
+      ]
+    },
+    {
+      "required": [
+        "variables"
+      ]
+    },
+    {
+      "required": [
+        "annotations"
+      ]
+    }
+  ],
+  "additionalProperties": false
+}

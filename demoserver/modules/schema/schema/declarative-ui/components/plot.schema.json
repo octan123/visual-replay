@@ -1,0 +1,66 @@
+{
+  "id": "https://xviz.org/schema/declarative-ui/components/plot.json",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "allOf": [{ "$ref": "https://xviz.org/schema/declarative-ui/component_base.json" }],
+  "properties": {
+    "type": {
+      "enum": ["PLOT"]
+    },
+    "title": {},
+    "description": {},
+    "independentVariable": {
+      "type": "string"
+    },
+    "dependentVariables": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "additionalItems": false
+    },
+    "regions": {
+      "type": "array",
+      "minItems": 1,
+      "additionalItems": false,
+      "items": {
+        "type": "object",
+        "properties": {
+          "x": {
+            "type": "string"
+          },
+          "yMin": {
+            "type": "string"
+          },
+          "yMax": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "x",
+          "yMin",
+          "yMax"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "anyOf": [
+    {
+      "required": [
+        "type",
+        "title",
+        "independentVariable",
+        "dependentVariables"
+      ]
+    },
+    {
+      "required": [
+        "type",
+        "title",
+        "regions"
+      ]
+    }
+  ],
+  "additionalProperties": false
+}

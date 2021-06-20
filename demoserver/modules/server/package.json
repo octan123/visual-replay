@@ -1,0 +1,36 @@
+{
+  "name": "@xviz/server",
+  "description": "XVIZ Server module",
+  "license": "Apache-2.0",
+  "version": "1.0.8",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uber/xviz.git"
+  },
+  "bin": {
+    "xvizserver": "./bin/xvizserver"
+  },
+  "main": "dist/es5/index.js",
+  "module": "dist/esm/index.js",
+  "esnext": "dist/es6/index.js",
+  "files": [
+    "dist",
+    "bin/xvizserver"
+  ],
+  "browser": {
+    "text-encoding": false
+  },
+  "dependencies": {
+    "@babel/register": "^7.4.4",
+    "@xviz/io": "1.0.8",
+    "probe.gl": "^3.1.0",
+    "text-encoding": "^0.6.4",
+    "ws": "^6.2.0",
+    "yargs": "^12.0.5"
+  },
+  "scripts": {},
+  "engines": {
+    "node": ">= 10.16"
+  },
+  "gitHead": "8e323ac31950395d3513e5e34df32c44e304c321"
+}

@@ -1,0 +1,25 @@
+{
+  "treetable": {
+    "columns": [
+      {
+        "display_text": "Age",
+        "type": "INT32",
+        "unit": "Years"
+      },
+      {
+        "display_text": "Name",
+        "type": "STRING"
+      }
+    ],
+    "nodes": [
+      {
+        "id": 0,
+        "column_values": ["10", "Jim"]
+        },
+      {
+        "id": 1,
+        "column_values": ["22", "Bob"]
+      }
+    ]
+  }
+}

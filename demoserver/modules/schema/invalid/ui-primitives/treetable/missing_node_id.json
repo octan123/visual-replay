@@ -1,0 +1,17 @@
+{
+  "columns": [
+    {
+      "display_text": "Age",
+      "type": "INT32"
+    }
+  ],
+  "nodes": [
+    {
+      "id": 0
+    },
+    {
+      "parent": 0,
+      "column_values": ["10"]
+    }
+  ]
+}

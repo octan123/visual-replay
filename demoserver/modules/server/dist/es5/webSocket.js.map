@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/webSocket.js"],"names":["fs","require","WebSocket"],"mappings":";;AAAA,IAAMA,EAAE,GAAGC,OAAO,CAAC,IAAD,CAAlB;;AACA,IAAMC,SAAS,GAAGD,OAAO,CAAC,IAAD,CAAzB","sourcesContent":["const fs = require('fs');\nconst WebSocket = require('ws');\n"],"file":"webSocket.js"}

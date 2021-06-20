@@ -1,0 +1,22 @@
+{
+  "id": "https://xviz.org/schema/primitives/circle.json",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "XVIZ Point primitive",
+  "type": "object",
+  "properties": {
+    "base": {
+      "$ref": "https://xviz.org/schema/core/primitive_base.json"
+    },
+    "type": {
+      "enum": ["CIRCLE"]
+    },
+    "center": {
+      "$ref": "https://xviz.org/schema/math/vector3x1.json"
+    },
+    "radius": {
+      "type": "number"
+    }
+  },
+  "required": [ "center", "radius" ],
+  "additionalProperties": false
+}

@@ -1,0 +1,11 @@
+{
+  "type": "PANEL",
+  "name": "One",
+  "children": [
+    {
+      "type": "METRIC",
+      "streams": ["/vehicle/velocity"],
+      "title": "Velocity"
+    }
+  ]
+}

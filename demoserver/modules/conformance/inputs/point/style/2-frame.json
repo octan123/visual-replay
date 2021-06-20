@@ -1,0 +1,74 @@
+{
+  "type": "xviz/state_update",
+  "data": {
+    "update_type": "snapshot",
+    "updates": [
+      {
+        "timestamp": 1000.1,
+        "poses": {
+          "/vehicle_pose": {
+            "timestamp": 1000.1,
+            "orientation": [0, 0, 0],
+            "position": [0, 0, 0],
+            "map_origin": {
+              "longitude": -122.4,
+              "latitude": 37.8,
+              "altitude": 0
+            }
+          }
+        },
+        "primitives": {
+
+          "/point/stream/radius_pixels": {
+            "points": [
+              {
+                "points": [[2, -4, 0], [2, -2, 0], [2, 0, 0]]
+              }
+            ]
+          },
+
+          "/point/stream/opacity": {
+            "points": [
+              {
+                "points": [[2, 2, 0], [2, 4, 0]]
+              }
+            ]
+          },
+
+          "/point/stream/fill_color": {
+            "points": [
+              {
+                "points": [[-4, -4, 0], [-4, -2, 0]]
+              }
+            ]
+          },
+
+          "/point/inline/color": {
+            "points": [
+              {
+                "points": [[-4, 0, 0], [-4, 2, 0], [-4, 4, 0]],
+                "colors": [[0, 255, 0], [0, 0, 255], [255, 255, 0]]
+              }
+            ]
+          },
+
+          "/point/stream/point_color_mode": {
+            "points": [
+              {
+                "points": [[-2, -4, 0], [-2, -2, 1], [-2, 0, 1.5], [-2, 2, 2], [-2, 4, 3]]
+              }
+            ]
+          },
+
+          "/point/stream/point_color_domain": {
+            "points": [
+              {
+                "points": [[0, -4, 0], [0, -2, 0], [0, 0, 0], [0, 2, 2], [0, 4, 3]]
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

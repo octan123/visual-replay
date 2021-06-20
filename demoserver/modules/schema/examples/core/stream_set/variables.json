@@ -1,0 +1,14 @@
+{
+  "timestamp": 1001.3,
+  "variables": {
+    "/object/variables": {
+      "variables": [
+        {
+          "values": {
+            "doubles": [9, 15, 3]
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "timestamp": 12345.5,
+  "streams": [
+    "/vehicle/torque/commanded",
+    "/vehicle/torque/actual"
+  ],
+  "values": {
+    "doubles": [5, 4.8]
+  }
+}
