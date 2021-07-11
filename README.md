@@ -1,7 +1,8 @@
 # visual-replay
 ![xviz](https://user-images.githubusercontent.com/19968677/123816955-5605b300-d92a-11eb-9fc7-86e9d4fc9d40.gif)
 
-frontend和server是基于仿真数据的回放，由于仿真数据中acceleration,velocity,wheel错误，导致acceleration,velocity,wheel显示有问题。  
+frontend和server是基于仿真数据的回放，由于仿真数据中没有激光雷达数据，并且acceleration,velocity,wheel错误，  
+导致无法看到激光雷达，并且acceleration,velocity,wheel显示有问题。  
 使用的主要技术xviz，websocket，react，egg.js  
 启动server，在根目录执行以下命令  
 cd server  
